@@ -21,6 +21,11 @@ import Foundation
 //          2.UploadTask
 //          3.DownloadTask
 
+enum URLSessionTasks {
+    case DataTask
+    case UploadTask
+    case DownloadTask
+}
 
 
 struct ApiRequest {
@@ -30,6 +35,13 @@ struct ApiRequest {
         let session = URLSession.shared
         return session
     }()
+    
+    
+    func Request(completion: @escaping (Bool,String?,Error?) -> ()) {
+        
+        
+        
+    }
 
     
     
