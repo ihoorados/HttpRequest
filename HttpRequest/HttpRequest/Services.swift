@@ -42,15 +42,21 @@ struct Services {
     
     
     
-    func DefaultConfig(){
+    func MakeRequest(type:URLSessionTasks) -> Data? {
+        let data = Data()
+        return data
     }
     
-
+    func RequestDataTask(completion: @escaping (Bool,Data?,Error?) -> ()) {
+            
+    }
     
-    func Request(completion: @escaping (Bool,String?,Error?) -> ()) {
-
+    func RequestUploadTask(completion: @escaping (Bool,Data?,Error?) -> ()) {
         
+    }
         
+    func RequestDownloadTask(completion: @escaping (Bool,Data?,Error?) -> ()) {
+            
     }
 
     
