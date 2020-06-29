@@ -24,43 +24,13 @@ import UIKit
 
 
 
-enum URLSessionTasks {
-    case DataTask
-    case UploadTask
-    case DownloadTask
-}
-
-enum HTTP {
-    enum Method:String {
-        case get = "GET"
-        case post = "POST"
-    }
-}
 
 
-struct Services {
-    
-    
-    
-    func MakeRequest(type:URLSessionTasks) -> Data? {
-        let data = Data()
-        return data
-    }
-    
-    func RequestDataTask(completion: @escaping (Bool,Data?,Error?) -> ()) {
-            
-    }
-    
-    func RequestUploadTask(completion: @escaping (Bool,Data?,Error?) -> ()) {
-        
-    }
-        
-    func RequestDownloadTask(completion: @escaping (Bool,Data?,Error?) -> ()) {
-            
-    }
 
+struct Services : ApisController{
     
-    
-    
+    func RequestFeedApi(completion: @escaping (Bool, Data?, Error?) -> ()) {
+        print("RequestFeedApi")
+    }
     
 }
