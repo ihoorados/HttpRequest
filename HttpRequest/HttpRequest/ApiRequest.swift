@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 // The Api Request could be a core of our moudl of a HttpRequest
@@ -21,24 +22,33 @@ import Foundation
 //          2.UploadTask
 //          3.DownloadTask
 
+
+
 enum URLSessionTasks {
     case DataTask
     case UploadTask
     case DownloadTask
 }
 
+enum HTTP {
+    enum Method:String {
+        case get = "GET"
+        case post = "POST"
+    }
+}
 
-struct ApiRequest {
+
+struct Services {
     
-    // Create a session for a URLSession
-    lazy var session : URLSession = {
-        let session = URLSession.shared
-        return session
-    }()
     
+    
+    func DefaultConfig(){
+    }
+    
+
     
     func Request(completion: @escaping (Bool,String?,Error?) -> ()) {
-        
+
         
         
     }
