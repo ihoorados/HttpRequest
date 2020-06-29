@@ -8,13 +8,62 @@
 
 import Foundation
 
-
-enum Apis {
-    case Feed
-    case FeedDetails
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
 }
 
-protocol ApisController {
-    func RequestFeedData(completion: @escaping (Bool,Data?,Error?) -> ())
-    func RequestFeedDetailsData(completion: @escaping (Bool,Data?,Error?) -> ())
+extension Services {
+    
+    enum Apis{
+        
+        case Feed
+        case FeedDetails
+        
+        private var url:URL {
+            var components = URLComponents()
+            components.path = path
+            components.host = baseURL
+            components.scheme = "https"
+            return components.url!
+        }
+        
+        var path: String {
+            switch self {
+            case .Feed:
+                return "/feedpath"
+            case .FeedDetails:
+                return "/FeedDetailsPath"
+            }
+        }
+        
+        var method: String {
+            switch self {
+            case .Feed:
+                return HTTPMethod.get.rawValue
+            case .FeedDetails:
+                return HTTPMethod.get.rawValue
+            }
+        }
+        var headers: Headers? {
+            switch self {
+            case .Feed:
+                return nil
+            case .FeedDetails:
+                return nil
+            }
+        }
+        
+        var request:URLRequest  {
+            var request = URLRequest(url: url)
+            request.httpMethod = method
+            return request
+        }
+        
+        
+    }
+
+    
 }

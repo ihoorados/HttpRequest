@@ -22,15 +22,13 @@ import UIKit
 //          2.UploadTask
 //          3.DownloadTask
 
-
-
-
-
-
-struct Services : ApisController{
+struct Services{
     
-    func RequestFeedApi(completion: @escaping (Bool, Data?, Error?) -> ()) {
-        print("RequestFeedApi")
+    static let baseURL = "baseurl.com"
+    
+    func MakeRequest(){
+        
+        print(Apis.FeedDetails.request)
+        print("---------------")
     }
-    
 }
