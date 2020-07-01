@@ -86,14 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7012ED0E24AC9D720036F1E5 /* Apis */ = {
-			isa = PBXGroup;
-			children = (
-				7012951C24AA232400BD2727 /* ServiceController.swift */,
-			);
-			path = Apis;
-			sourceTree = "<group>";
-		};
 		705141B924AA26ED00F02A8C /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				705141B924AA26ED00F02A8C /* Main */,
-				7012ED0E24AC9D720036F1E5 /* Apis */,
 				7061009B24A8F5D60032F87D /* HttpRequest */,
 				7061006A24A8F4CD0032F87D /* AppDelegate.swift */,
 				7061006E24A8F4CE0032F87D /* Main.storyboard */,
@@ -160,6 +151,7 @@
 		7061009B24A8F5D60032F87D /* HttpRequest */ = {
 			isa = PBXGroup;
 			children = (
+				7012951C24AA232400BD2727 /* ServiceController.swift */,
 				7061009C24A8F5FD0032F87D /* ServiceNetworkLayer.swift */,
 				7060DF0E24AA36130040888F /* ServicesProtocol.swift */,
 				7012ED0C24AC9A570036F1E5 /* ServiceRequest.swift */,
