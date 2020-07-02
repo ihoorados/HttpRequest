@@ -26,4 +26,3 @@ struct Request{
     var headers: [Headers]?
 }
 
-
