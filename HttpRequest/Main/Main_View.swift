@@ -20,12 +20,11 @@ class MainView: UIViewController {
         return button
     }()
     
-    var viewModel : MainViewModel?
+    var viewModel : MainViewModel = MainViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        viewModel = MainViewModel()
         OptimizeUIlayout()
     }
     
@@ -45,7 +44,7 @@ class MainView: UIViewController {
     
     @objc private func makeRequest(){
         print("PressButton")
-        viewModel?.fetch()
+        viewModel.fetch()
     }
 
 }

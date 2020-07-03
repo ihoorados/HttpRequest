@@ -9,5 +9,13 @@
 import Foundation
 
 protocol ServiceProtocol {
-    func get(_ request: Request,completion: (Data, Error) -> Void)
+    func get(_ request: GetRequest,completion: @escaping(Data?, Error?) -> Void)
+    func post(_ request: PostRequest,completion: @escaping(Data?, Error?) -> Void)
 }
+
+protocol ServiceConfigurationProtocol {
+    func ConfigRequestWith(_ request:GetRequest) -> URLRequest
+    func StartTaskWith(_ request:URLRequest, completion:@escaping(Data?,Error?) -> Void)
+    func JSONSerializationWith(_ data:Data, completion:@escaping(Dictionary<String, Any>?,Error?) -> Void)
+}
+

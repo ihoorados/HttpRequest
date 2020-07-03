@@ -17,8 +17,8 @@ struct ServiceController {
         case Feed
     }
     
-    var FeedApi : Request = {
-        var feedRequest = Request()
+    var FeedApiRequest : GetRequest = {
+        var feedRequest = GetRequest()
         feedRequest.headers = [Headers(dictionaryLiteral: ("Content-Type", "application/json"))]
         feedRequest.method = HTTPMethod.get.rawValue
         feedRequest.path = "/facts"
@@ -32,8 +32,12 @@ struct ServiceController {
         
         switch api {
         case .Feed:
-            service.get(FeedApi) { (data, err) in
-                print(data)
+            service.get(FeedApiRequest) { (data, err) in
+                if let data = data {
+                    print("We Have Data \(data)")
+                }else if let err = err {
+                    print("we Have Err : \(err)")
+                }
             }
         }
         

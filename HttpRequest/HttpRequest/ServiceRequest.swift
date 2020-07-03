@@ -18,7 +18,15 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-struct Request{
+struct GetRequest{
+    var path: String?
+    var host: String?
+    var scheme: String?
+    var method: HTTPMethod.RawValue?
+    var headers: [Headers]?
+}
+
+struct PostRequest{
     var path: String?
     var host: String?
     var scheme: String?

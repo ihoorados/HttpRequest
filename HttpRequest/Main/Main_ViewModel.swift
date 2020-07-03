@@ -12,11 +12,11 @@ import Foundation
 struct MainViewModel {
     
     
-    var api : ServiceController = ServiceController()
+    var service : ServiceController = ServiceController()
         
     func fetch(){
         
-        api.MakeRequestFor(api: .Feed) { (data, err) in
+        service.MakeRequestFor(api: .Feed) { (data, err) in
             print("don")
         }
         
