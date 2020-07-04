@@ -29,11 +29,14 @@ struct ServiceNetworkLayer{
         return session
     }()
     
+    
+    
 }
 
 extension ServiceNetworkLayer : ServiceProtocol {
     
     func get(_ ServiceRequest: GetRequest, completion: @escaping (Data?, Error?) -> Void) {
+        
         let request = ConfigRequestWith(ServiceRequest)
         StartTaskWith(request) { (data, error) in
             completion(data,error)
@@ -43,6 +46,10 @@ extension ServiceNetworkLayer : ServiceProtocol {
     func post(_ request: PostRequest, completion: (Data?, Error?) -> Void) {
         
     }
+    
+    // Pull
+    // Delete
+    // Update
     
 }
 

@@ -32,5 +32,6 @@ struct PostRequest{
     var scheme: String?
     var method: HTTPMethod.RawValue?
     var headers: [Headers]?
+    var parameter: [String:Any]?
 }
 
