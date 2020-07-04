@@ -9,14 +9,17 @@
 import Foundation
 import UIKit
 
-// The Api Request could be a core of our moudl of a HttpRequest
+// The Service Network Layer could be a core of our moudl of a HttpRequest
+
 //      We Want to use URLSession!
 //      The URLSession have some child in it :
+
 //          1.Delegate
 //          2.URLSessionTask
 //          3.URLSessionConfiguration
-//
+
 //      For the first step we need URLSessionTask wich contains :
+
 //          1.DataTask
 //          2.UploadTask
 //          3.DownloadTask

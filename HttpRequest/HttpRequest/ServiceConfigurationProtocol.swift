@@ -26,6 +26,7 @@ extension ServiceNetworkLayer : ServiceConfigurationProtocol {
     
     func StartTaskWith(_ request: URLRequest, completion: @escaping (Data?, Error?) -> Void) {
         let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
+            
             if let error = error {
                 print ("\(error)")
                 completion(nil,error)

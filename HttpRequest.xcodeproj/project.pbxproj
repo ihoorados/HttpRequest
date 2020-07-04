@@ -11,7 +11,7 @@
 		7012ED0D24AC9A570036F1E5 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7012ED0C24AC9A570036F1E5 /* ServiceRequest.swift */; };
 		705141B824AA26E800F02A8C /* Main_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705141B724AA26E800F02A8C /* Main_ViewModel.swift */; };
 		705141BB24AA2ADB00F02A8C /* Main_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705141BA24AA2ADB00F02A8C /* Main_View.swift */; };
-		7060DF0F24AA36130040888F /* ServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060DF0E24AA36130040888F /* ServicesProtocol.swift */; };
+		7060DF0F24AA36130040888F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060DF0E24AA36130040888F /* Protocols.swift */; };
 		7061006B24A8F4CD0032F87D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061006A24A8F4CD0032F87D /* AppDelegate.swift */; };
 		7061007024A8F4CE0032F87D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7061006E24A8F4CE0032F87D /* Main.storyboard */; };
 		7061007324A8F4CE0032F87D /* HttpRequest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7061007124A8F4CE0032F87D /* HttpRequest.xcdatamodeld */; };
@@ -46,7 +46,7 @@
 		7012ED0C24AC9A570036F1E5 /* ServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		705141B724AA26E800F02A8C /* Main_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_ViewModel.swift; sourceTree = "<group>"; };
 		705141BA24AA2ADB00F02A8C /* Main_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_View.swift; sourceTree = "<group>"; };
-		7060DF0E24AA36130040888F /* ServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProtocol.swift; sourceTree = "<group>"; };
+		7060DF0E24AA36130040888F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		7061006724A8F4CD0032F87D /* HttpRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HttpRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7061006A24A8F4CD0032F87D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7061006F24A8F4CE0032F87D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 				7012951C24AA232400BD2727 /* ServiceController.swift */,
 				7061009C24A8F5FD0032F87D /* ServiceNetworkLayer.swift */,
 				70C849E124B10B0F00F7AC4C /* ServiceConfigurationProtocol.swift */,
-				7060DF0E24AA36130040888F /* ServicesProtocol.swift */,
 				7012ED0C24AC9A570036F1E5 /* ServiceRequest.swift */,
+				7060DF0E24AA36130040888F /* Protocols.swift */,
 			);
 			path = HttpRequest;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 				7061009D24A8F5FD0032F87D /* ServiceNetworkLayer.swift in Sources */,
 				705141B824AA26E800F02A8C /* Main_ViewModel.swift in Sources */,
 				7012ED0D24AC9A570036F1E5 /* ServiceRequest.swift in Sources */,
-				7060DF0F24AA36130040888F /* ServicesProtocol.swift in Sources */,
+				7060DF0F24AA36130040888F /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
