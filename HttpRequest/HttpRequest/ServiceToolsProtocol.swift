@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension ServiceNetworkLayer : ServiceConfigurationProtocol {
+extension ServiceNetworkLayer : ServiceToolsProtocol {
     
     
     func ConfigRequestWith(_ ServiceRequest: GetRequest) -> URLRequest {

@@ -33,7 +33,6 @@ struct ServiceNetworkLayer{
     }()
     
     
-    
 }
 
 extension ServiceNetworkLayer : ServiceProtocol {
@@ -41,6 +40,7 @@ extension ServiceNetworkLayer : ServiceProtocol {
     func get(_ ServiceRequest: GetRequest, completion: @escaping (Data?, Error?) -> Void) {
         
         let request = ConfigRequestWith(ServiceRequest)
+        
         StartTaskWith(request) { (data, error) in
             completion(data,error)
         }
