@@ -12,6 +12,7 @@ extension ServiceNetworkLayer : ServiceToolsProtocol {
     
     
     func ConfigRequestWith(_ ServiceRequest: GetRequest) -> URLRequest {
+        
         let url : URL = {
             var component = URLComponents()
             component.scheme = ServiceRequest.scheme
@@ -22,11 +23,12 @@ extension ServiceNetworkLayer : ServiceToolsProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = ServiceRequest.method
         return request
+        
     }
     
     func StartTaskWith(_ request: URLRequest, completion: @escaping (Data?, Error?) -> Void) {
+        
         let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
-            
             if let error = error {
                 print ("\(error)")
                 completion(nil,error)
@@ -36,6 +38,7 @@ extension ServiceNetworkLayer : ServiceToolsProtocol {
             }
         })
         task.resume()
+        
     }
     
     func JSONSerializationWith(_ data: Data, completion: @escaping([String:Any]?, Error?) -> Void) {
