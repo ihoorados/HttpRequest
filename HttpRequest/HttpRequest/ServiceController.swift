@@ -33,28 +33,18 @@ struct ServiceController {
     }
     
     
-    func MakeRequestFor(api:ApisList,completion: (Data, Error) -> Void){
+    func MakeRequestFor(api:ApisList,completion: @escaping (Data?, Error?) -> Void){
         
         switch api.Request.method {
             
         case HTTPMethod.get.rawValue:
             service.get(api.Request) { (data, err) in
-                if let data = data {
-                    print("We Have Data \(data)")
-                }else if let err = err {
-                    print("we Have Err : \(err)")
-                }
+                completion(data,err)
             }
-            
         case HTTPMethod.post.rawValue:
             service.post(api.Request) { (data, err) in
-                if let data = data {
-                    print("We Have Data \(data)")
-                }else if let err = err {
-                    print("we Have Err : \(err)")
-                }
+                completion(data,err)
             }
-            
         default:
             print("Some err")
             

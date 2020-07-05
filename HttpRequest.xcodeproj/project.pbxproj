@@ -20,6 +20,7 @@
 		7061008324A8F4D10032F87D /* HttpRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061008224A8F4D10032F87D /* HttpRequestTests.swift */; };
 		7061008E24A8F4D10032F87D /* HttpRequestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061008D24A8F4D10032F87D /* HttpRequestUITests.swift */; };
 		7061009D24A8F5FD0032F87D /* ServiceNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061009C24A8F5FD0032F87D /* ServiceNetworkLayer.swift */; };
+		70A515B124B217AF00904D4D /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A515B024B217AF00904D4D /* ErrorHandling.swift */; };
 		70C849E224B10B0F00F7AC4C /* ServiceNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C849E124B10B0F00F7AC4C /* ServiceNetworkTools.swift */; };
 		70DB2AAE24AE845A00635281 /* Main_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB2AAD24AE845A00635281 /* Main_Model.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		7061008D24A8F4D10032F87D /* HttpRequestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestUITests.swift; sourceTree = "<group>"; };
 		7061008F24A8F4D10032F87D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7061009C24A8F5FD0032F87D /* ServiceNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceNetworkLayer.swift; sourceTree = "<group>"; };
+		70A515B024B217AF00904D4D /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		70C849E124B10B0F00F7AC4C /* ServiceNetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceNetworkTools.swift; sourceTree = "<group>"; };
 		70DB2AAD24AE845A00635281 /* Main_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 				70C849E124B10B0F00F7AC4C /* ServiceNetworkTools.swift */,
 				7012ED0C24AC9A570036F1E5 /* ServiceRequest.swift */,
 				7060DF0E24AA36130040888F /* Protocols.swift */,
+				70A515B024B217AF00904D4D /* ErrorHandling.swift */,
 			);
 			path = HttpRequest;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				705141B824AA26E800F02A8C /* Main_ViewModel.swift in Sources */,
 				7012ED0D24AC9A570036F1E5 /* ServiceRequest.swift in Sources */,
 				7060DF0F24AA36130040888F /* Protocols.swift in Sources */,
+				70A515B124B217AF00904D4D /* ErrorHandling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

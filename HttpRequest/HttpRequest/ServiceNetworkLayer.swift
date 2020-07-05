@@ -38,16 +38,18 @@ extension ServiceNetworkLayer : ServiceProtocol {
     
     func get(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
         
-        let request = tools.ConfigRequestWith(ServiceRequest)
-        tools.StartDataTaskWith(request) { (data, error) in
-            completion(data,error)
+        if let request = tools.ConfigRequestWith(ServiceRequest){
+            tools.StartDataTaskWith(request) { (data, error) in
+                completion(data,error)
+            }
         }
     }
     
     func post(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
-        let request = tools.ConfigRequestWith(ServiceRequest)
-        tools.StartDataTaskWith(request) { (data, error) in
-            completion(data,error)
+        if let request = tools.ConfigRequestWith(ServiceRequest) {
+            tools.StartDataTaskWith(request) { (data, error) in
+                completion(data,error)
+            }
         }
     }
     
