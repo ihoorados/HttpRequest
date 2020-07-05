@@ -26,27 +26,29 @@ import UIKit
 
 struct ServiceNetworkLayer{
     
-    // Create a session for a URLSession
-    var session : URLSession = {
-        let session = URLSession.shared
-        return session
-    }()
     
+    var tools : ServiceNetworkTools = {
+        let tools = ServiceNetworkTools()
+        return tools
+    }()
     
 }
 
 extension ServiceNetworkLayer : ServiceProtocol {
     
-    func get(_ ServiceRequest: GetRequest, completion: @escaping (Data?, Error?) -> Void) {
+    func get(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
         
-        let request = ConfigRequestWith(ServiceRequest)
-        StartTaskWith(request) { (data, error) in
+        let request = tools.ConfigRequestWith(ServiceRequest)
+        tools.StartDataTaskWith(request) { (data, error) in
             completion(data,error)
         }
     }
     
-    func post(_ ServiceRequest: PostRequest, completion: (Data?, Error?) -> Void) {
-        
+    func post(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
+        let request = tools.ConfigRequestWith(ServiceRequest)
+        tools.StartDataTaskWith(request) { (data, error) in
+            completion(data,error)
+        }
     }
     
     // Pull

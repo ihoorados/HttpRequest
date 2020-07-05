@@ -13,24 +13,14 @@ struct ServiceController {
     
     var service : ServiceNetworkLayer = ServiceNetworkLayer()
     
-//    var FeedApiRequest : GetRequest = {
-//        var feedRequest = GetRequest()
-//        feedRequest.headers = [Headers(dictionaryLiteral: ("Content-Type", "application/json"))]
-//        feedRequest.method = HTTPMethod.get.rawValue
-//        feedRequest.path = "/facts"
-//        feedRequest.scheme = "https"
-//        feedRequest.host = "cat-fact.herokuapp.com"
-//        return feedRequest
-//    }()
-    
     enum ApisList{
         
         case Feed
         
-        var Request : GetRequest {
+        var Request : ServiceRequest {
             switch self {
             case .Feed:
-                var feedRequest = GetRequest()
+                var feedRequest = ServiceRequest()
                 feedRequest.headers = [Headers(dictionaryLiteral: ("Content-Type", "application/json"))]
                 feedRequest.method = HTTPMethod.get.rawValue
                 feedRequest.path = "/facts"
@@ -42,19 +32,35 @@ struct ServiceController {
         
     }
     
-
-    
     
     func MakeRequestFor(api:ApisList,completion: (Data, Error) -> Void){
         
-        service.get(api.Request) { (data, err) in
-            if let data = data {
-                print("We Have Data \(data)")
-            }else if let err = err {
-                print("we Have Err : \(err)")
+        switch api.Request.method {
+            
+        case HTTPMethod.get.rawValue:
+            service.get(api.Request) { (data, err) in
+                if let data = data {
+                    print("We Have Data \(data)")
+                }else if let err = err {
+                    print("we Have Err : \(err)")
+                }
             }
-
+            
+        case HTTPMethod.post.rawValue:
+            service.post(api.Request) { (data, err) in
+                if let data = data {
+                    print("We Have Data \(data)")
+                }else if let err = err {
+                    print("we Have Err : \(err)")
+                }
+            }
+            
+        default:
+            print("Some err")
+            
         }
+
     }
+    // End Of MakeRequestFor Func
     
 }

@@ -16,15 +16,7 @@ enum HTTPMethod: String {
     case post = "POST"
 }
 
-struct GetRequest{
-    var path: String?
-    var host: String?
-    var scheme: String?
-    var method: HTTPMethod.RawValue?
-    var headers: [Headers]?
-}
-
-struct PostRequest{
+struct ServiceRequest{
     var path: String?
     var host: String?
     var scheme: String?
@@ -32,4 +24,3 @@ struct PostRequest{
     var headers: [Headers]?
     var parameter: [String:Any]?
 }
-

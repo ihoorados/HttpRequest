@@ -11,7 +11,6 @@ import Foundation
 
 struct MainViewModel {
     
-    
     var service : ServiceController = ServiceController()
         
     func fetch(){
