@@ -9,18 +9,14 @@
 import Foundation
 
 
-typealias Headers = [String: String]
-
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-}
+public typealias HTTPParameters = [String: Any]?
+public typealias HTTPHeaders = [String: Any]?
 
 struct ServiceRequest{
     var path: String?
     var host: String?
     var scheme: String?
     var method: HTTPMethod.RawValue?
-    var headers: [Headers]?
-    var parameter: [String:Any]?
+    var headers: [HTTPHeaders]?
+    var parameter: [HTTPHeaders]?
 }
