@@ -24,7 +24,7 @@ struct ServiceController {
                 feedRequest.headers = [Headers(dictionaryLiteral: ("Content-Type", "application/json"))]
                 feedRequest.method = HTTPMethod.get.rawValue
                 feedRequest.path = "/facts"
-                feedRequest.scheme = "https"
+                feedRequest.scheme = ""
                 feedRequest.host = "cat-fact.herokuapp.com"
                 return feedRequest
             }
