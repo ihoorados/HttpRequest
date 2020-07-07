@@ -9,44 +9,43 @@
 import Foundation
 import UIKit
 
-// The Service Network Layer could be a core of our moudl of a HttpRequest
+// The Service Network Layer is a core of our moudl of a Request
 
-//      We Want to use URLSession!
-//      The URLSession have some child in it :
 
+//      URLSession:
 //          1.Delegate
 //          2.URLSessionTask
 //          3.URLSessionConfiguration
 
-//      For the first step we need URLSessionTask wich contains :
-
+//      URLSessionTask :
 //          1.DataTask
 //          2.UploadTask
 //          3.DownloadTask
 
 struct ServiceNetworkLayer{
     
-    
     var tools : ServiceNetworkTools = {
         let tools = ServiceNetworkTools()
         return tools
     }()
     
+    
 }
 
 extension ServiceNetworkLayer : ServiceProtocol {
     
-    func get(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
+    
+    func UploadTask(_ request: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
         
-        if let request = tools.ConfigRequestWith(ServiceRequest){
-            tools.StartDataTaskWith(request) { (data, error) in
-                completion(data,error)
-            }
-        }
     }
     
-    func post(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
-        if let request = tools.ConfigRequestWith(ServiceRequest) {
+    func DownloadTask(_ request: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
+        
+    }
+    
+    func DataTask(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
+        
+        if let request = tools.ConfigRequestWith(ServiceRequest){
             tools.StartDataTaskWith(request) { (data, error) in
                 completion(data,error)
             }

@@ -9,8 +9,10 @@
 import Foundation
 
 protocol ServiceProtocol {
-    func get(_ request: ServiceRequest,completion: @escaping(Data?, Error?) -> Void)
-    func post(_ request: ServiceRequest,completion: @escaping(Data?, Error?) -> Void)
+    func DataTask(_ request: ServiceRequest,completion: @escaping(Data?, Error?) -> Void)
+    func UploadTask(_ request: ServiceRequest,completion: @escaping(Data?, Error?) -> Void)
+    func DownloadTask(_ request: ServiceRequest,completion: @escaping(Data?, Error?) -> Void)
+
 }
 
 protocol ServiceToolsProtocol {

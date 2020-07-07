@@ -38,11 +38,11 @@ struct ServiceController {
         switch api.Request.method {
             
         case HTTPMethod.get.rawValue:
-            service.get(api.Request) { (data, err) in
+            service.DataTask(api.Request) { (data, err) in
                 completion(data,err)
             }
         case HTTPMethod.post.rawValue:
-            service.post(api.Request) { (data, err) in
+            service.DataTask(api.Request) { (data, err) in
                 completion(data,err)
             }
         default:
