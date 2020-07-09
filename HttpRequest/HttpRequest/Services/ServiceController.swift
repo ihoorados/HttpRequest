@@ -21,10 +21,9 @@ struct ServiceController {
             switch self {
             case .Feed:
                 var feedRequest = ServiceRequest()
-                feedRequest.headers = [Headers(dictionaryLiteral: ("Content-Type", "application/json"))]
                 feedRequest.method = HTTPMethod.get.rawValue
                 feedRequest.path = "/facts"
-                feedRequest.scheme = ""
+                feedRequest.scheme = "https"
                 feedRequest.host = "cat-fact.herokuapp.com"
                 return feedRequest
             }

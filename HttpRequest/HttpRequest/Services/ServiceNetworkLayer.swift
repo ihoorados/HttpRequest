@@ -22,6 +22,15 @@ import UIKit
 //          2.UploadTask
 //          3.DownloadTask
 
+
+//API Request
+//An API request typically consists the following components:
+//a) Request type
+//b) Request URL
+//c) Headers
+//d) Request body
+
+
 struct ServiceNetworkLayer{
     
     var tools : ServiceNetworkTools = {
@@ -45,11 +54,13 @@ extension ServiceNetworkLayer : ServiceProtocol {
     
     func DataTask(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
         
-        if let request = tools.ConfigRequestWith(ServiceRequest){
+        do{
+            let request = try tools.configureRequest(ServiceRequest)
             tools.StartDataTaskWith(request) { (data, error) in
                 completion(data,error)
             }
-        }
+        }catch{ completion(nil,HTTPNetworkError.badRequest) }
+        
     }
     
     // Pull
