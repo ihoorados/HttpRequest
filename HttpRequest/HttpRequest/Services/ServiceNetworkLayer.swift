@@ -23,12 +23,7 @@ import UIKit
 //          3.DownloadTask
 
 
-//API Request
-//An API request typically consists the following components:
-//a) Request type
-//b) Request URL
-//c) Headers
-//d) Request body
+
 
 
 struct ServiceNetworkLayer{
@@ -44,38 +39,23 @@ struct ServiceNetworkLayer{
 extension ServiceNetworkLayer : ServiceProtocol {
     
     
-    func UploadTask(_ request: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
+    func UploadTask(_ request: HTTPRequest, completion: @escaping (Data?, Error?) -> Void) {
         
     }
     
-    func DownloadTask(_ request: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
+    func DownloadTask(_ request: HTTPRequest, completion: @escaping (Data?, Error?) -> Void) {
         
     }
     
-    func DataTask(_ ServiceRequest: ServiceRequest, completion: @escaping (Data?, Error?) -> Void) {
+    func DataTask(_ request: HTTPRequest, completion: @escaping (Data?, Error?) -> Void) {
         
         do{
-            let request = try tools.configureRequest(ServiceRequest)
-            tools.StartDataTaskWith(request) { (data, error) in
+            let TaskRequest = try tools.configureRequest(request)
+            tools.StartDataTaskWith(TaskRequest) { (data, error) in
                 completion(data,error)
             }
         }catch{ completion(nil,HTTPNetworkError.badRequest) }
         
     }
     
-    // Pull
-    // Delete
-    // Update
-    
 }
-
-//protocol URLSessionProtocol {
-//    typealias DataTaskResult = (Data?, URLResponse?, Error?) -> ()
-//    func dataTask(request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTask
-//}
-//
-//extension URLSession: URLSessionProtocol {
-//    func dataTask(request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTask {
-//        return dataTask(with: request, completionHandler: completionHandler)
-//    }
-//}

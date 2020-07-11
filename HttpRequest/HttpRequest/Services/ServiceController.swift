@@ -11,16 +11,19 @@ import Foundation
 
 struct ServiceController {
     
-    var service : ServiceNetworkLayer = ServiceNetworkLayer()
+    var ServiceShared : ServiceNetworkLayer = {
+        let service = ServiceNetworkLayer()
+        return service
+    }()
     
     enum ApisList{
         
         case Feed
         
-        var Request : ServiceRequest {
+        var Request : HTTPRequest {
             switch self {
             case .Feed:
-                var feedRequest = ServiceRequest()
+                var feedRequest = HTTPRequest()
                 feedRequest.method = HTTPMethod.get.rawValue
                 feedRequest.path = "/facts"
                 feedRequest.scheme = "https"
@@ -28,27 +31,12 @@ struct ServiceController {
                 return feedRequest
             }
         }
-        
     }
     
-    
-    func MakeRequestFor(api:ApisList,completion: @escaping (Data?, Error?) -> Void){
-        
-        switch api.Request.method {
-            
-        case HTTPMethod.get.rawValue:
-            service.DataTask(api.Request) { (data, err) in
-                completion(data,err)
-            }
-        case HTTPMethod.post.rawValue:
-            service.DataTask(api.Request) { (data, err) in
-                completion(data,err)
-            }
-        default:
-            print("Some err")
-            
+    func RequestFor(api:ApisList,completion: @escaping (Data?, Error?) -> Void){        
+        ServiceShared.DataTask(api.Request) { (data, err) in
+            completion(data,err)
         }
-
     }
     // End Of MakeRequestFor Func
     

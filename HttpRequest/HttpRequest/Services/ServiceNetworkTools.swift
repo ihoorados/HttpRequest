@@ -17,7 +17,7 @@ struct ServiceNetworkTools : ServiceToolsProtocol {
     }()
     
     
-    func configureRequest(_ ServiceRequest: ServiceRequest) throws -> URLRequest {
+    func configureRequest(_ ServiceRequest: HTTPRequest) throws -> URLRequest {
         
         guard let method = ServiceRequest.method  else {
             throw HTTPNetworkError.failed

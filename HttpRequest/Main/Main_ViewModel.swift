@@ -14,9 +14,9 @@ struct MainViewModel {
     var service : ServiceController = ServiceController()
         
     func fetch(){
-        
-        service.MakeRequestFor(api: .Feed) { (data, err) in
-            print("don")
+                
+        service.RequestFor(api: .Feed) { (data, err) in
+            print("Don")
         }
         
     }

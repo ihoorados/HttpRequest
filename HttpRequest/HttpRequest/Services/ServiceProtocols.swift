@@ -9,14 +9,14 @@
 import Foundation
 
 protocol ServiceProtocol {
-    func DataTask(_ request: ServiceRequest,completion: @escaping(Data?, Error?) -> Void)
-    func UploadTask(_ request: ServiceRequest,completion: @escaping(Data?, Error?) -> Void)
-    func DownloadTask(_ request: ServiceRequest,completion: @escaping(Data?, Error?) -> Void)
+    func DataTask(_ request: HTTPRequest,completion: @escaping(Data?, Error?) -> Void)
+    func UploadTask(_ request: HTTPRequest,completion: @escaping(Data?, Error?) -> Void)
+    func DownloadTask(_ request: HTTPRequest,completion: @escaping(Data?, Error?) -> Void)
 
 }
 
 protocol ServiceToolsProtocol {
-    func configureRequest(_ ServiceRequest:ServiceRequest) throws -> URLRequest
+    func configureRequest(_ ServiceRequest:HTTPRequest) throws -> URLRequest
     func StartDataTaskWith(_ request:URLRequest, completion:@escaping(Data?,Error?) -> Void)
     func JSONSerializationWith(_ data:Data, completion:@escaping(Dictionary<String, Any>?,Error?) -> Void)
 }
