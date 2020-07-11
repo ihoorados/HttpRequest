@@ -18,13 +18,13 @@ import Foundation
 
 
 public typealias HTTPParameters = [String: Any]?
-public typealias HTTPHeaders = [String: Any]?
+public typealias HTTPHeaders = [String: String]?
 
 struct HTTPRequest{
     var path: String?
     var host: String?
     var scheme: String?
     var method: HTTPMethod.RawValue?
-    var headers: [HTTPHeaders]?
-    var parameter: [HTTPHeaders]?
+    var headers: HTTPHeaders?
+    var parameter: HTTPParameters?
 }

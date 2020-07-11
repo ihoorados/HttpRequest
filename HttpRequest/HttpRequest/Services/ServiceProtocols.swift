@@ -16,7 +16,7 @@ protocol ServiceProtocol {
 }
 
 protocol ServiceToolsProtocol {
-    func configureRequest(_ ServiceRequest:HTTPRequest) throws -> URLRequest
+    func configureRequest(_ HTTPRequest:HTTPRequest) throws -> URLRequest
     func StartDataTaskWith(_ request:URLRequest, completion:@escaping(Data?,Error?) -> Void)
     func JSONSerializationWith(_ data:Data, completion:@escaping(Dictionary<String, Any>?,Error?) -> Void)
 }

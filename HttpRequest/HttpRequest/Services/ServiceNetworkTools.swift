@@ -17,18 +17,18 @@ struct ServiceNetworkTools : ServiceToolsProtocol {
     }()
     
     
-    func configureRequest(_ ServiceRequest: HTTPRequest) throws -> URLRequest {
+    func configureRequest(_ httpRequest: HTTPRequest) throws -> URLRequest {
         
-        guard let method = ServiceRequest.method  else {
+        guard let method = httpRequest.method  else {
             throw HTTPNetworkError.failed
         }
-        guard let scheme = ServiceRequest.scheme else{
+        guard let scheme = httpRequest.scheme else{
             throw HTTPNetworkError.missingURL
         }
-        guard let host = ServiceRequest.host else{
+        guard let host = httpRequest.host else{
             throw HTTPNetworkError.missingURL
         }
-        guard let path = ServiceRequest.path else {
+        guard let path = httpRequest.path else {
             throw HTTPNetworkError.missingURL
         }
         guard let url = getURL(scheme: scheme, path: path, host: host) else {
@@ -36,6 +36,18 @@ struct ServiceNetworkTools : ServiceToolsProtocol {
         }
         var request = URLRequest(url: url)
         request.httpMethod = method
+
+        if httpRequest.headers != nil {
+            guard let headers = httpRequest.headers else {
+                throw HTTPNetworkError.headersNil
+            }
+            guard let headerfeilds = headers else {
+                throw HTTPNetworkError.headersNil
+            }
+            request.allHTTPHeaderFields = headerfeilds
+        }
+
+        
         return request
     }
     

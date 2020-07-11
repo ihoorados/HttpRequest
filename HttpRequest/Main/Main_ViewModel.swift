@@ -17,6 +17,12 @@ struct MainViewModel {
                 
         service.RequestFor(api: .Feed) { (data, err) in
             print("Don")
+            
+            if let err = err {
+                print(err.localizedDescription)
+            }else if let data = data{
+                print(data)
+            }
         }
         
     }
