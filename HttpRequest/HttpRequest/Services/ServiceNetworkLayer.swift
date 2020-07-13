@@ -23,9 +23,6 @@ import UIKit
 //          3.DownloadTask
 
 
-
-
-
 struct ServiceNetworkLayer{
     
     var tools : ServiceNetworkTools = {
@@ -50,7 +47,7 @@ extension ServiceNetworkLayer : ServiceProtocol {
     func DataTask(_ request: HTTPRequest, completion: @escaping (Data?, Error?) -> Void) {
         
         do{
-            let TaskRequest = try tools.configureRequest(request)
+            let TaskRequest = try tools.configureRequestForDataTask(request)
             tools.StartDataTaskWith(TaskRequest) { (data, error) in
                 completion(data,error)
             }

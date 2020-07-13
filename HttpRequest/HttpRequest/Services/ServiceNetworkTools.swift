@@ -10,6 +10,8 @@ import Foundation
 
 struct ServiceNetworkTools : ServiceToolsProtocol {
     
+        
+    
     // Create a session for a URLSession
     var session : URLSession = {
         let session = URLSession.shared
@@ -17,7 +19,7 @@ struct ServiceNetworkTools : ServiceToolsProtocol {
     }()
     
     
-    func configureRequest(_ httpRequest: HTTPRequest) throws -> URLRequest {
+    func configureRequestForDataTask(_ httpRequest: HTTPRequest) throws -> URLRequest {
         
         guard let method = httpRequest.method  else {
             throw HTTPNetworkError.failed
@@ -57,13 +59,15 @@ struct ServiceNetworkTools : ServiceToolsProtocol {
         
         let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
 
-            if let data = data {
+            do{
+                if let error = error { completion(nil,error)}
+                let data = try self.ValidateResponse(response as? HTTPURLResponse,data)
                 completion(data,nil)
+            }catch{
+                
             }
-            if let error = error {
-                print ("\(error)")
-                completion(nil,error)
-            }
+
+
             
         })
         task.resume()
@@ -82,6 +86,20 @@ struct ServiceNetworkTools : ServiceToolsProtocol {
         }
         
     }
+
+    
+    func ValidateResponse(_ Response: HTTPURLResponse?, _ data: Data?) throws -> Data {
+        guard let response = Response else { throw HTTPNetworkError.badRequest }
+        switch response.statusCode {
+        case 400:
+            throw HTTPNetworkError.badRequest
+        default:
+            break
+        }
+        guard let data = data else { throw HTTPNetworkError.noData }
+        return data
+    }
+    
     
     func getURL(scheme:String,path:String,host:String) -> URL? {
         var component = URLComponents()
