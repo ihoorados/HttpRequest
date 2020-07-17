@@ -9,6 +9,7 @@
 import Foundation
 
 struct ServiceNetworkTools : ServiceToolsProtocol {
+
     
         
     
@@ -36,10 +37,12 @@ struct ServiceNetworkTools : ServiceToolsProtocol {
         guard let url = getURL(scheme: scheme, path: path, host: host) else {
             throw HTTPNetworkError.missingURL
         }
+        
         var request = URLRequest(url: url)
         request.httpMethod = method
 
         if httpRequest.headers != nil {
+            
             guard let headers = httpRequest.headers else {
                 throw HTTPNetworkError.headersNil
             }

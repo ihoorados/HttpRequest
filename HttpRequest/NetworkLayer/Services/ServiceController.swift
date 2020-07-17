@@ -17,9 +17,7 @@ struct ServiceController {
     }()
     
     enum ApisList{
-        
         case Feed
-        
         var Request : HTTPRequest {
             switch self {
             case .Feed:
