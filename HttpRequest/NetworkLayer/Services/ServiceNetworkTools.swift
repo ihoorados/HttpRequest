@@ -10,9 +10,7 @@ import Foundation
 
 struct ServiceNetworkTools : ServiceToolsProtocol {
 
-    
-        
-    
+            
     // Create a session for a URLSession
     var session : URLSession = {
         let session = URLSession.shared
