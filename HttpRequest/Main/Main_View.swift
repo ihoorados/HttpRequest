@@ -9,6 +9,12 @@
 import UIKit
 
 class MainView: UIViewController {
+        
+    
+    lazy var MethodSegmentControll: UISegmentedControl = {
+        let methodSegment = UISegmentedControl(items: ["GET","POST"])
+        return methodSegment
+    }()
     
     lazy var SendRequestBtn:UIButton = {
         let button = UIButton()
@@ -19,6 +25,7 @@ class MainView: UIViewController {
         button.setTitle("Start Request", for: .normal)
         return button
     }()
+    
     lazy var CancelRequestBtn:UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 12
@@ -41,20 +48,30 @@ class MainView: UIViewController {
     
     func OptimizeUIlayout(){
         
+        
+        view.addSubview(MethodSegmentControll)
+        MethodSegmentControll.translatesAutoresizingMaskIntoConstraints = false
+        MethodSegmentControll.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -46.0).isActive = true
+        MethodSegmentControll.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 46.0).isActive = true
+        MethodSegmentControll.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
+        MethodSegmentControll.selectedSegmentIndex = 0
+        
+        
+
         view.addSubview(CancelRequestBtn)
         CancelRequestBtn.translatesAutoresizingMaskIntoConstraints = false
         CancelRequestBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -46.0).isActive = true
         CancelRequestBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 46.0).isActive = true
         CancelRequestBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -86).isActive = true
-        CancelRequestBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        CancelRequestBtn.heightAnchor.constraint(equalToConstant: 60).isActive = true
         CancelRequestBtn.addTarget(self, action: #selector(CancelRequest), for: .touchUpInside)
         
         view.addSubview(SendRequestBtn)
         SendRequestBtn.translatesAutoresizingMaskIntoConstraints = false
         SendRequestBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -46.0).isActive = true
         SendRequestBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 46.0).isActive = true
-        SendRequestBtn.bottomAnchor.constraint(equalTo: CancelRequestBtn.topAnchor, constant: -32).isActive = true
-        SendRequestBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        SendRequestBtn.bottomAnchor.constraint(equalTo: CancelRequestBtn.topAnchor, constant: -16).isActive = true
+        SendRequestBtn.heightAnchor.constraint(equalToConstant: 60).isActive = true
         SendRequestBtn.addTarget(self, action: #selector(SendRequest), for: .touchUpInside)
         
     }
