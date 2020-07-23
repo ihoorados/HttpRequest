@@ -9,6 +9,22 @@
 import UIKit
 
 class MainView: UIViewController {
+    
+    
+    lazy var URLTitle : UILabel = {
+        let label = UILabel()
+        label.text = "URL Address"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
+    
+    lazy var URLTextField:UITextField = {
+       let textFeild = UITextField()
+        textFeild.borderStyle = .roundedRect
+        textFeild.placeholder = "http://wwww.google.com/api"
+        textFeild.font = UIFont.systemFont(ofSize: 14)
+        return textFeild
+    }()
         
     
     lazy var MethodSegmentControll: UISegmentedControl = {
@@ -45,9 +61,7 @@ class MainView: UIViewController {
     }
     
     
-    
     func OptimizeUIlayout(){
-        
         
         view.addSubview(MethodSegmentControll)
         MethodSegmentControll.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +70,18 @@ class MainView: UIViewController {
         MethodSegmentControll.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
         MethodSegmentControll.selectedSegmentIndex = 0
         
+        view.addSubview(URLTitle)
+        URLTitle.translatesAutoresizingMaskIntoConstraints = false
+        URLTitle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
+        URLTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
+        URLTitle.topAnchor.constraint(equalTo: MethodSegmentControll.bottomAnchor, constant: 32.0).isActive = true
         
-
+        view.addSubview(URLTextField)
+        URLTextField.translatesAutoresizingMaskIntoConstraints = false
+        URLTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
+        URLTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
+        URLTextField.topAnchor.constraint(equalTo: URLTitle.bottomAnchor, constant: 16.0).isActive = true
+        
         view.addSubview(CancelRequestBtn)
         CancelRequestBtn.translatesAutoresizingMaskIntoConstraints = false
         CancelRequestBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -46.0).isActive = true
@@ -73,7 +97,6 @@ class MainView: UIViewController {
         SendRequestBtn.bottomAnchor.constraint(equalTo: CancelRequestBtn.topAnchor, constant: -16).isActive = true
         SendRequestBtn.heightAnchor.constraint(equalToConstant: 60).isActive = true
         SendRequestBtn.addTarget(self, action: #selector(SendRequest), for: .touchUpInside)
-        
     }
     
     @objc private func SendRequest(){
