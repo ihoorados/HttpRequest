@@ -10,7 +10,6 @@ import UIKit
 
 class MainView: UIViewController {
     
-    
     lazy var URLTitle : UILabel = {
         let label = UILabel()
         label.text = "URL Address"
@@ -24,6 +23,11 @@ class MainView: UIViewController {
         textFeild.placeholder = "http://wwww.google.com/api"
         textFeild.font = UIFont.systemFont(ofSize: 14)
         return textFeild
+    }()
+    
+    lazy var ResponseTextView:UITextView = {
+       let textView = UITextView()
+        return textView
     }()
         
     
@@ -81,6 +85,15 @@ class MainView: UIViewController {
         URLTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
         URLTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
         URLTextField.topAnchor.constraint(equalTo: URLTitle.bottomAnchor, constant: 16.0).isActive = true
+        URLTextField.text = "https://www.cat-fact.herokuapp.com/facts"
+        
+        view.addSubview(ResponseTextView)
+        ResponseTextView.translatesAutoresizingMaskIntoConstraints = false
+        ResponseTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
+        ResponseTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
+        ResponseTextView.topAnchor.constraint(equalTo: URLTextField.bottomAnchor, constant: 16.0).isActive = true
+        ResponseTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        ResponseTextView.text = "Respnse OUTPUT"
         
         view.addSubview(CancelRequestBtn)
         CancelRequestBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +114,16 @@ class MainView: UIViewController {
     
     @objc private func SendRequest(){
         print("Press SendRequest Button")
-        viewModel.fetch()
+        viewModel.fetch { (data) in
+            print(data)
+            DispatchQueue.main.async {
+                //Do UI Code here.
+                self.ResponseTextView.text = data
+            }
+            
+            //self.ResponseTextView.text = data.debugDescription
+        }
+        
     }
     @objc private func CancelRequest(){
         print("Press CancelRequest Button")

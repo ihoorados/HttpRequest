@@ -32,9 +32,14 @@ struct ServiceController {
         }
     }
     
-    func RequestFor(api:ApisList,completion: @escaping (Data?, Error?) -> Void){        
+    func RequestFor(api:ApisList,completion: @escaping ([String : Any]?, Error?) -> Void){        
         ServiceShared.DataTask(api.Request) { (data, err) in
-            completion(data,err)
+            //completion(data,err)
+            if let data = data {
+                self.ServiceShared.tools.JSONSerializationWith(data) { (json, err) in
+                    completion(json,err)
+                }
+            }
         }
     }
     // End Of MakeRequestFor Func

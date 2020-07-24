@@ -12,18 +12,15 @@ import Foundation
 struct MainViewModel {
     
     var service : ServiceController = ServiceController()
+    
+    func fetch(completion: @escaping (String) -> Void){
         
-    func fetch(){
-                
         service.RequestFor(api: .Feed) { (data, err) in
-            print("Don")
-            
             if let err = err {
-                print(err.localizedDescription)
+                completion(err.localizedDescription)
             }else if let data = data{
-                print(data)
+                completion(data.description)
             }
         }
-        
     }
 }
