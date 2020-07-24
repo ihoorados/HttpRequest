@@ -92,7 +92,7 @@ class MainView: UIViewController {
         ResponseTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
         ResponseTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
         ResponseTextView.topAnchor.constraint(equalTo: URLTextField.bottomAnchor, constant: 16.0).isActive = true
-        ResponseTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        ResponseTextView.heightAnchor.constraint(equalToConstant: 400).isActive = true
         ResponseTextView.text = "Respnse OUTPUT"
         
         view.addSubview(CancelRequestBtn)
