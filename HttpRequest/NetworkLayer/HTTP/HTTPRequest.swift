@@ -16,7 +16,6 @@
 
 import Foundation
 
-
 public typealias HTTPParameters = [String: Any]?
 public typealias HTTPHeaders = [String: String]?
 

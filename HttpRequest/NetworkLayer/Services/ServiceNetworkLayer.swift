@@ -31,11 +31,6 @@ struct ServiceNetworkLayer{
     }()
     
     
-}
-
-extension ServiceNetworkLayer : ServiceProtocol {
-    
-    
     func UploadTask(_ request: HTTPRequest, completion: @escaping (Data?, Error?) -> Void) {
         
     }
@@ -45,7 +40,6 @@ extension ServiceNetworkLayer : ServiceProtocol {
     }
     
     func DataTask(_ request: HTTPRequest, completion: @escaping (Data?, Error?) -> Void) {
-        
         do{
             let TaskRequest = try tools.configureRequestForDataTask(request)
             tools.StartDataTaskWith(TaskRequest) { (data, error) in
