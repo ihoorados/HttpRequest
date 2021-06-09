@@ -8,10 +8,9 @@
 
 import Foundation
 
-
 protocol EndPointType {
-    var baseURL:URL { get }
-    var path:String { get }
-    var httpMethod:HTTPMethod { get }
-    var httpHeaders:HTTPHeaders { get }
+    var path:           String      { get }
+    var baseURL:        URL         { get }
+    var httpMethod:     HTTPMethod  { get }
+    var httpHeaders:    HTTPHeaders { get }
 } 

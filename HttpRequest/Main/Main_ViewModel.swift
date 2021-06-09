@@ -11,11 +11,14 @@ import Foundation
 
 struct MainViewModel {
     
-    var service : ServiceController = ServiceController()
+    var repos : Repository
+    init(repos:Repository = Repository()) {
+        self.repos = repos
+    }    
     
     func fetch(completion: @escaping (String) -> Void){
         
-        service.RequestFor(api: .Feed) { (data, err) in
+        repos.RequestFor(api: .Feed) { (data, err) in
             if let err = err {
                 completion(err.localizedDescription)
             }else if let data = data{
