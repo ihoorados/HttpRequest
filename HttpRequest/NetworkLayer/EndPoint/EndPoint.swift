@@ -32,6 +32,9 @@ extension NetworkEndPoint{
     func buildURLRequest(with url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = Method.rawValue
+        Headers.map { header in
+            print(header)
+        }
         request.allHTTPHeaderFields = Headers
         return request
     }
