@@ -8,21 +8,6 @@
 
 import Foundation
 
-enum ApisList{
-    case Feed
-    var Request : HTTPRequest {
-        switch self {
-        case .Feed:
-            var feedRequest = HTTPRequest()
-            feedRequest.method = HTTPMethod.get.rawValue
-            feedRequest.path = "/facts"
-            feedRequest.scheme = "https"
-            feedRequest.host = "cat-fact.herokuapp.com"
-            feedRequest.headers = HTTPHeaders(["Content-Type":"application/json"])
-            return feedRequest
-        }
-    }
-}
 
 protocol RepositoryDelegate {
     func RequestFor(api: ApisList, completion: @escaping ([String : Any]?, Error?) -> Void)
@@ -30,7 +15,7 @@ protocol RepositoryDelegate {
 
 struct Repository: RepositoryDelegate {
     
-    var ServiceShared : DataTaskService = {
+    private var ServiceShared : DataTaskService = {
         let service = DataTaskService(session: URLSession.shared)
         return service
     }()

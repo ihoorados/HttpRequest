@@ -8,18 +8,15 @@
 
 import Foundation
 
-// The Service Network Layer is a core of our moudl of a Request
+
+public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
 
-//      URLSession:
-//          1.Delegate
-//          2.URLSessionTask
-//          3.URLSessionConfiguration
-
-//      URLSessionTask :
-//          1.DataTask
-//          2.UploadTask
-//          3.DownloadTask
+protocol NetworkRouter{
+    associatedtype EndPoint: EndPointType
+    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
+    func cancel()
+}
 
 protocol DataTaskDelegate {
     typealias Response = ((Result<Data,Error>) -> Void)
@@ -37,7 +34,6 @@ final class DataTaskService: DataTaskDelegate{
     
     //MARK: Properties
     private var task: URLSessionTask?
-    
     
     //MARK: Start Task
     func StartDataTask(_ request: URLRequest, completion: @escaping (Result<Data,Error>) -> Void) {
@@ -60,7 +56,9 @@ final class DataTaskService: DataTaskDelegate{
         task?.cancel()
     }
     
-    
+}
+
+extension DataTaskService{
     
     private func ValidateResponse(_ Response: HTTPURLResponse?, _ data: Data?) throws -> Data {
         guard let response = Response else { throw HTTPNetworkError.badRequest }
@@ -73,7 +71,6 @@ final class DataTaskService: DataTaskDelegate{
         guard let data = data else { throw HTTPNetworkError.noData }
         return data
     }
-    
 }
 
 

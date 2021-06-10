@@ -1,11 +1,12 @@
 //
-//  Request.swift
+//  HTTPMethod.swift
 //  HttpRequest
 //
-//  Created by Hoorad on 7/1/20.
+//  Created by Hoorad on 7/7/20.
 //  Copyright © 2020 Hoorad. All rights reserved.
 //
 
+import Foundation
 
 //  API Request:
 //      An API request typically consists the following components:
@@ -14,10 +15,16 @@
 //          3) Headers
 //          4) Request body Or Parameter
 
-import Foundation
-
 public typealias HTTPParameters = [String: Any]?
 public typealias HTTPHeaders = [String: String]?
+
+public enum HTTPMethod: String {
+    case get     = "GET"
+    case post    = "POST"
+    case put     = "PUT"
+    case patch   = "PATCH"
+    case delete  = "DELETE"
+}
 
 struct HTTPRequest{
     var path: String?
