@@ -15,7 +15,7 @@ protocol RepositoryDelegate {
     func cancelRequest()
 }
 
-struct Main_Repository: RepositoryDelegate {
+struct MainRepository: RepositoryDelegate {
     
     typealias response = ((Result<[CatFactModel],Error>) -> Void)
     private var Service:DataTaskService

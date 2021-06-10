@@ -15,8 +15,8 @@ class MainViewModel {
     var dataModel: [CatFactModel] = [CatFactModel]()
 
     //MARK: Dependency injection
-    private var repos : Main_Repository
-    init(repos:Main_Repository = Main_Repository()) {
+    private var repos : MainRepository
+    init(repos:MainRepository = MainRepository()) {
         self.repos = repos
     }
     
