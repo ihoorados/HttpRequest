@@ -19,11 +19,9 @@
 		7061008324A8F4D10032F87D /* HttpRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061008224A8F4D10032F87D /* HttpRequestTests.swift */; };
 		7061008E24A8F4D10032F87D /* HttpRequestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061008D24A8F4D10032F87D /* HttpRequestUITests.swift */; };
 		7061009D24A8F5FD0032F87D /* DataTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061009C24A8F5FD0032F87D /* DataTaskService.swift */; };
-		707622FE26712DC200481697 /* ApiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707622FD26712DC200481697 /* ApiList.swift */; };
+		707622FE26712DC200481697 /* FactApiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707622FD26712DC200481697 /* FactApiList.swift */; };
 		7076230026712F1100481697 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707622FF26712F1100481697 /* ServiceManager.swift */; };
-		7081D2AB24B4E9A100050A64 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081D2AA24B4E9A100050A64 /* HTTPRequest.swift */; };
-		7081D2AD24B4E9BE00050A64 /* HTTPNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081D2AC24B4E9BE00050A64 /* HTTPNetworkError.swift */; };
-		70C849E224B10B0F00F7AC4C /* ServiceNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C849E124B10B0F00F7AC4C /* ServiceNetworkTools.swift */; };
+		7081D2AD24B4E9BE00050A64 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081D2AC24B4E9BE00050A64 /* NetworkError.swift */; };
 		70DB2AAE24AE845A00635281 /* Main_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB2AAD24AE845A00635281 /* Main_Model.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,11 +61,9 @@
 		7061008D24A8F4D10032F87D /* HttpRequestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestUITests.swift; sourceTree = "<group>"; };
 		7061008F24A8F4D10032F87D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7061009C24A8F5FD0032F87D /* DataTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskService.swift; sourceTree = "<group>"; };
-		707622FD26712DC200481697 /* ApiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiList.swift; sourceTree = "<group>"; };
+		707622FD26712DC200481697 /* FactApiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactApiList.swift; sourceTree = "<group>"; };
 		707622FF26712F1100481697 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
-		7081D2AA24B4E9A100050A64 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
-		7081D2AC24B4E9BE00050A64 /* HTTPNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkError.swift; sourceTree = "<group>"; };
-		70C849E124B10B0F00F7AC4C /* ServiceNetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceNetworkTools.swift; sourceTree = "<group>"; };
+		7081D2AC24B4E9BE00050A64 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		70DB2AAD24AE845A00635281 /* Main_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +134,7 @@
 		7061006924A8F4CD0032F87D /* HttpRequest */ = {
 			isa = PBXGroup;
 			children = (
-				707622FD26712DC200481697 /* ApiList.swift */,
+				70762301267281DD00481697 /* Network End Points */,
 				705141B924AA26ED00F02A8C /* Main */,
 				7061009B24A8F5D60032F87D /* NetworkLayer */,
 				7061006A24A8F4CD0032F87D /* AppDelegate.swift */,
@@ -179,11 +175,18 @@
 			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
+		70762301267281DD00481697 /* Network End Points */ = {
+			isa = PBXGroup;
+			children = (
+				707622FD26712DC200481697 /* FactApiList.swift */,
+			);
+			path = "Network End Points";
+			sourceTree = "<group>";
+		};
 		7081D2A924B4E8FF00050A64 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7081D2AA24B4E9A100050A64 /* HTTPRequest.swift */,
-				7081D2AC24B4E9BE00050A64 /* HTTPNetworkError.swift */,
+				7081D2AC24B4E9BE00050A64 /* NetworkError.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -193,7 +196,6 @@
 			children = (
 				707622FF26712F1100481697 /* ServiceManager.swift */,
 				7061009C24A8F5FD0032F87D /* DataTaskService.swift */,
-				70C849E124B10B0F00F7AC4C /* ServiceNetworkTools.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -335,13 +337,11 @@
 				7061007324A8F4CE0032F87D /* HttpRequest.xcdatamodeld in Sources */,
 				7076230026712F1100481697 /* ServiceManager.swift in Sources */,
 				7012951D24AA232400BD2727 /* Main_Repository.swift in Sources */,
-				70C849E224B10B0F00F7AC4C /* ServiceNetworkTools.swift in Sources */,
-				707622FE26712DC200481697 /* ApiList.swift in Sources */,
+				707622FE26712DC200481697 /* FactApiList.swift in Sources */,
 				7061009D24A8F5FD0032F87D /* DataTaskService.swift in Sources */,
 				705141B824AA26E800F02A8C /* Main_ViewModel.swift in Sources */,
-				7081D2AB24B4E9A100050A64 /* HTTPRequest.swift in Sources */,
 				704AF7EB24C1EB7B00159E65 /* EndPoint.swift in Sources */,
-				7081D2AD24B4E9BE00050A64 /* HTTPNetworkError.swift in Sources */,
+				7081D2AD24B4E9BE00050A64 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

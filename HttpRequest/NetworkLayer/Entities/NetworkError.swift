@@ -9,7 +9,7 @@
 import Foundation
 
 // The enumeration defines possible errrors to encounter during Network Request
-public enum HTTPNetworkError: String, Error {
+public enum NetworkError: String, Error {
     case parametersNil = "Error Found : Parameters are nil."
     case headersNil = "Error Found : Headers are Nil"
     case encodingFailed = "Error Found : Parameter Encoding failed."

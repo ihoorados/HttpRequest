@@ -8,11 +8,11 @@
 
 import Foundation
 
-public enum CatFactApi {
+public enum FactApiList {
     case facts
 }
 
-extension CatFactApi: EndPointType {
+extension FactApiList: NetworkEndPoint {
     
     var path: String {
         switch self {
@@ -35,8 +35,8 @@ extension CatFactApi: EndPointType {
         }
     }
     
-    var baseURL: URL {
-        return URL(fileURLWithPath: "")
+    var Method: HTTPMethod {
+        return .get
     }
     
     var Headers: HTTPHeaders {
@@ -47,13 +47,6 @@ extension CatFactApi: EndPointType {
         return nil
     }
     
-    var Method: HTTPMethod {
-        return .get
-    }
-
-    var headers: HTTPHeaders? {
-        return HTTPHeaders(["Content-Type":"application/json"])
-    }
 }
 
 

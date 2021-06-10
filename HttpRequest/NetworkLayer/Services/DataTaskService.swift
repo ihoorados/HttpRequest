@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-
-
 protocol DataTaskDelegate {
     typealias Response = ((Result<Data,Error>) -> Void)
     func StartDataTask(_ request: URLRequest,completion: @escaping Response)
@@ -30,21 +27,26 @@ final class DataTaskService: DataTaskDelegate{
     
     //MARK: Start Task
     func StartDataTask(_ request: URLRequest, completion: @escaping Response) {
-        
         task = session.dataTask(with: request,
                                 completionHandler: { [weak self] (data, response, error) in
+                                    
+            // 1. Check error
             if let error = error {
                 completion(.failure(error))
             }
+            
+            // 2. Check response
             guard let response = response as? HTTPURLResponse else {
-                completion(.failure(HTTPNetworkError.FragmentResponse))
+                completion(.failure(NetworkError.FragmentResponse))
                 return
             }
+                                    
+            // 3. Validate Response
             self?.ValidateResponse(response, data: data) { result in
                 completion(result)
             }
         })
-        self.task?.resume()
+        task?.resume()
     }
     
     func CancelDataTask() {
@@ -58,28 +60,16 @@ extension DataTaskService{
         switch Response.statusCode {
         case 200...299:
             guard let data = data else {
-                completion(.failure(HTTPNetworkError.noData))
+                completion(.failure(NetworkError.noData))
                 return
             }
             completion(.success(data))
         case 401...500:
-            completion(.failure(HTTPNetworkError.authenticationError))
-        case 600: return
-            completion(.failure(HTTPNetworkError.failed))
+            completion(.failure(NetworkError.authenticationError))
+        case 600:
+            completion(.failure(NetworkError.failed))
         default:
-            completion(.failure(HTTPNetworkError.badRequest))
+            completion(.failure(NetworkError.serverSideError))
         }
-    }
-}
-
-
-
-protocol UploadTaskDelegate {
-    func UploadTask(_ request: HTTPRequest,completion: @escaping(Data?, Error?) -> Void)
-}
-struct UploadTask: UploadTaskDelegate {
-    
-    func UploadTask(_ request: HTTPRequest, completion: @escaping (Data?, Error?) -> Void) {
-        
     }
 }

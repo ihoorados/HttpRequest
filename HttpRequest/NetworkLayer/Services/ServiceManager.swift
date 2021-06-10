@@ -8,6 +8,17 @@
 
 import Foundation
 
+protocol ServiceManagerDelegate {
+    
+}
+
+struct FailableDecodable<Base : Decodable> : Decodable {
+    let base: Base?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        self.base = try? container.decode(Base.self)
+    }
+}
 
 // The Service Network Layer is a core of our moudl of a Request
 
@@ -16,6 +27,7 @@ import Foundation
 //          1.Delegate
 //          2.URLSessionTask
 //          3.URLSessionConfiguration
+
 
 //      URLSessionTask :
 //          1.DataTask

@@ -9,20 +9,25 @@
 import Foundation
 
 
-struct MainViewModel {
+class MainViewModel {
     
-    typealias response = ((Result<[String:Any],Error>) -> Void)
+    //MARK: Exposable Properties
+    var dataModel: [CatFactModel] = [CatFactModel]()
 
-    var repos : Main_Repository
+    //MARK: Dependency injection
+    private var repos : Main_Repository
     init(repos:Main_Repository = Main_Repository()) {
         self.repos = repos
     }
     
     func fetch(){
-        repos.RequestFor(api: .facts) { Result in
+        repos.Request(for: FactApiList.facts) { [weak self] Result in
             switch Result{
             case .success(let data):
-                print(data)
+                self?.dataModel.append(contentsOf: data)
+                data.forEach { fact in
+                    print(fact)
+                }
             case .failure(let err):
                 print(err)
             }

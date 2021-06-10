@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct CatFactModel: Codable {
+    let status: Status
+    let type: String
+    let text: String
+    let updatedAt, createdAt: String
+}
+
+// MARK: - Status
+struct Status: Codable {
+    let verified: Bool
+    let sentCount: Int
+}

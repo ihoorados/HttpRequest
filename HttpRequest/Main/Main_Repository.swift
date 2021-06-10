@@ -10,61 +10,64 @@ import Foundation
 
 
 protocol RepositoryDelegate {
-    typealias response = ((Result<[String:Any],Error>) -> Void)
-    func RequestFor(api: CatFactApi, completion:  @escaping response)
+    typealias response = ((Result<[CatFactModel],Error>) -> Void)
+    func Request(for endPoint: NetworkEndPoint, completion:  @escaping response)
     func cancelRequest()
 }
 
 struct Main_Repository: RepositoryDelegate {
     
-    typealias response = ((Result<[String:Any],Error>) -> Void)
-    private var ServiceShared:DataTaskService
+    typealias response = ((Result<[CatFactModel],Error>) -> Void)
+    private var Service:DataTaskService
     init(service:DataTaskService = DataTaskService(session: URLSession.shared)) {
-        ServiceShared = service
+        Service = service
     }
     
-    func RequestFor(api:CatFactApi,completion: @escaping response){
-        do {
-            let request = try api.buildURLRequest()
-            StartRequest(with: request, completion: { result in
-                completion(result)
-            })
-        } catch  {
-            print("faild")
-        }
-    }
-    
-    
-    fileprivate func StartRequest(with request:URLRequest,
-                                  completion: @escaping response){
-        ServiceShared.StartDataTask(request) { result in
-            switch result{
-            case .success(let data):
-                JSONSerializationWith(data) { result in
-                    completion(result)
-                }
-            case .failure(let err):
-                print(err)
-            }
+    func Request(for endPoint:NetworkEndPoint,completion: @escaping response){
+        /* We Can Chose What kind of request we can do
+                1. Rest Api Network
+                2. Cash or data base
+                3. FireBase or other third party
+        */
+        RequestOverNetwork(api: endPoint) { response in
+            completion(response)
         }
     }
     
     func cancelRequest() {
-        ServiceShared.CancelDataTask()
+        Service.CancelDataTask()
     }
-
     
-    
-    private func JSONSerializationWith(_ data: Data,completion: @escaping response) {
-        do {
-            // make sure this JSON is in the format we expect
-            let jsonData = try JSONSerialization.jsonObject(with: data,
-                                                            options: .mutableContainers) as! [String : Any]
-            completion(.success(jsonData))
-        } catch let error as NSError {
-            completion(.failure(error))
+    // MARK: - Request Over the Network
+    private func RequestOverNetwork(api:NetworkEndPoint,completion: @escaping response){
+        guard let url = api.buildURL() else {
+            completion(.failure(NetworkError.missingURL))
+            return
         }
-        
+        let request = api.buildURLRequest(with: url)
+        Service.StartDataTask(request) { result in
+            switch result{
+                case .success(let data):
+                    JSONSerializationWith(data: data) { result in
+                        completion(result)
+                    }
+                case .failure(let err):
+                    completion(.failure(err))
+            }
+        }
+    }
+    
+    // Mark: - Decode Profile Data And Update Status
+    private func JSONSerializationWith(data: Data,completion: response) {
+        do {
+            let DataModel = try JSONDecoder()
+                .decode([FailableDecodable<CatFactModel>].self, from: data)
+                .compactMap { $0.base }
+            completion(.success(DataModel))
+        } catch let jsonError as NSError {
+          print("JSON decode failed: \(jsonError.localizedDescription)")
+            completion(.failure(jsonError))
+        }
     }
     
 }
