@@ -19,7 +19,7 @@
 		7061008E24A8F4D10032F87D /* HttpRequestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061008D24A8F4D10032F87D /* HttpRequestUITests.swift */; };
 		7061009D24A8F5FD0032F87D /* DataTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061009C24A8F5FD0032F87D /* DataTaskService.swift */; };
 		707622FE26712DC200481697 /* FactApiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707622FD26712DC200481697 /* FactApiList.swift */; };
-		7076230026712F1100481697 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707622FF26712F1100481697 /* ServiceManager.swift */; };
+		707623062672857E00481697 /* FailableDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707623052672857E00481697 /* FailableDecodable.swift */; };
 		7081D2AD24B4E9BE00050A64 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081D2AC24B4E9BE00050A64 /* NetworkError.swift */; };
 		70DB2AAE24AE845A00635281 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB2AAD24AE845A00635281 /* MainModel.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +60,7 @@
 		7061008F24A8F4D10032F87D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7061009C24A8F5FD0032F87D /* DataTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskService.swift; sourceTree = "<group>"; };
 		707622FD26712DC200481697 /* FactApiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactApiList.swift; sourceTree = "<group>"; };
-		707622FF26712F1100481697 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		707623052672857E00481697 /* FailableDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableDecodable.swift; sourceTree = "<group>"; };
 		7081D2AC24B4E9BE00050A64 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		70DB2AAD24AE845A00635281 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,8 +136,10 @@
 				70762302267283F800481697 /* Application */,
 				70762301267281DD00481697 /* Network End Points */,
 				705141B924AA26ED00F02A8C /* Main */,
+				707623042672855900481697 /* Utils */,
 				7061009B24A8F5D60032F87D /* NetworkLayer */,
 				7061007424A8F4D10032F87D /* Assets.xcassets */,
+				7061007924A8F4D10032F87D /* Info.plist */,
 			);
 			path = HttpRequest;
 			sourceTree = "<group>";
@@ -165,7 +167,7 @@
 			children = (
 				704AF7E924C1EB6800159E65 /* EndPoint */,
 				7081D2AE24B4E9DC00050A64 /* Services */,
-				7081D2A924B4E8FF00050A64 /* Entities */,
+				7081D2A924B4E8FF00050A64 /* Network Error */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -183,7 +185,6 @@
 			children = (
 				7061007124A8F4CE0032F87D /* HttpRequest.xcdatamodeld */,
 				7061006A24A8F4CD0032F87D /* AppDelegate.swift */,
-				7061007924A8F4D10032F87D /* Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -196,18 +197,25 @@
 			path = "Story Boards";
 			sourceTree = "<group>";
 		};
-		7081D2A924B4E8FF00050A64 /* Entities */ = {
+		707623042672855900481697 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				707623052672857E00481697 /* FailableDecodable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		7081D2A924B4E8FF00050A64 /* Network Error */ = {
 			isa = PBXGroup;
 			children = (
 				7081D2AC24B4E9BE00050A64 /* NetworkError.swift */,
 			);
-			path = Entities;
+			path = "Network Error";
 			sourceTree = "<group>";
 		};
 		7081D2AE24B4E9DC00050A64 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				707622FF26712F1100481697 /* ServiceManager.swift */,
 				7061009C24A8F5FD0032F87D /* DataTaskService.swift */,
 			);
 			path = Services;
@@ -276,7 +284,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = Hoorad;
 				TargetAttributes = {
 					7061006624A8F4CD0032F87D = {
@@ -347,7 +355,7 @@
 				7061006B24A8F4CD0032F87D /* AppDelegate.swift in Sources */,
 				705141BB24AA2ADB00F02A8C /* MainView.swift in Sources */,
 				7061007324A8F4CE0032F87D /* HttpRequest.xcdatamodeld in Sources */,
-				7076230026712F1100481697 /* ServiceManager.swift in Sources */,
+				707623062672857E00481697 /* FailableDecodable.swift in Sources */,
 				7012951D24AA232400BD2727 /* MainRepository.swift in Sources */,
 				707622FE26712DC200481697 /* FactApiList.swift in Sources */,
 				7061009D24A8F5FD0032F87D /* DataTaskService.swift in Sources */,
@@ -426,6 +434,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -487,6 +496,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -521,7 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VL7467LK5R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HttpRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,7 +549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VL7467LK5R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HttpRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
