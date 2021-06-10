@@ -9,14 +9,7 @@
 import Foundation
 
 
-public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
-
-protocol NetworkRouter{
-    associatedtype EndPoint: EndPointType
-    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
-    func cancel()
-}
 
 protocol DataTaskDelegate {
     typealias Response = ((Result<Data,Error>) -> Void)
@@ -36,17 +29,19 @@ final class DataTaskService: DataTaskDelegate{
     private var task: URLSessionTask?
     
     //MARK: Start Task
-    func StartDataTask(_ request: URLRequest, completion: @escaping (Result<Data,Error>) -> Void) {
+    func StartDataTask(_ request: URLRequest, completion: @escaping Response) {
         
-        task = session.dataTask(with: request, completionHandler: {(data, response, error) in
+        task = session.dataTask(with: request,
+                                completionHandler: { [weak self] (data, response, error) in
             if let error = error {
                 completion(.failure(error))
             }
-            do{
-                let data = try self.ValidateResponse(response as? HTTPURLResponse,data)
-                completion(.success(data))
-            }catch let err{
-                completion(.failure(err))
+            guard let response = response as? HTTPURLResponse else {
+                completion(.failure(HTTPNetworkError.FragmentResponse))
+                return
+            }
+            self?.ValidateResponse(response, data: data) { result in
+                completion(result)
             }
         })
         self.task?.resume()
@@ -59,17 +54,21 @@ final class DataTaskService: DataTaskDelegate{
 }
 
 extension DataTaskService{
-    
-    private func ValidateResponse(_ Response: HTTPURLResponse?, _ data: Data?) throws -> Data {
-        guard let response = Response else { throw HTTPNetworkError.badRequest }
-        switch response.statusCode {
-        case 400:
-            throw HTTPNetworkError.badRequest
+    private func ValidateResponse(_ Response: HTTPURLResponse,data:Data?,completion:(Result<Data,Error>) -> Void) {
+        switch Response.statusCode {
+        case 200...299:
+            guard let data = data else {
+                completion(.failure(HTTPNetworkError.noData))
+                return
+            }
+            completion(.success(data))
+        case 401...500:
+            completion(.failure(HTTPNetworkError.authenticationError))
+        case 600: return
+            completion(.failure(HTTPNetworkError.failed))
         default:
-            break
+            completion(.failure(HTTPNetworkError.badRequest))
         }
-        guard let data = data else { throw HTTPNetworkError.noData }
-        return data
     }
 }
 

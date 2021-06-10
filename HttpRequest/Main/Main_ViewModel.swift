@@ -11,19 +11,25 @@ import Foundation
 
 struct MainViewModel {
     
-    var repos : Repository
-    init(repos:Repository = Repository()) {
+    typealias response = ((Result<[String:Any],Error>) -> Void)
+
+    var repos : Main_Repository
+    init(repos:Main_Repository = Main_Repository()) {
         self.repos = repos
-    }    
+    }
     
-    func fetch(completion: @escaping (String) -> Void){
-        
-        repos.RequestFor(api: .Feed) { (data, err) in
-            if let err = err {
-                completion(err.localizedDescription)
-            }else if let data = data{
-                completion(data.description)
+    func fetch(){
+        repos.RequestFor(api: .facts) { Result in
+            switch Result{
+            case .success(let data):
+                print(data)
+            case .failure(let err):
+                print(err)
             }
         }
+    }
+    
+    func cancelFetch(){
+        repos.cancelRequest()
     }
 }

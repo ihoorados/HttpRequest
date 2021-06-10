@@ -114,19 +114,11 @@ class MainView: UIViewController {
     
     @objc private func SendRequest(){
         print("Press SendRequest Button")
-        viewModel.fetch { (data) in
-            print(data)
-            DispatchQueue.main.async {
-                //Do UI Code here.
-                self.ResponseTextView.text = data
-            }
-            
-            //self.ResponseTextView.text = data.debugDescription
-        }
-        
+        viewModel.fetch()
     }
     @objc private func CancelRequest(){
         print("Press CancelRequest Button")
+        viewModel.cancelFetch()
     }
 
 }

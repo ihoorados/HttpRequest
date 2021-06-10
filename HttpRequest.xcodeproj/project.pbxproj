@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7012951D24AA232400BD2727 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7012951C24AA232400BD2727 /* Repository.swift */; };
+		7012951D24AA232400BD2727 /* Main_Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7012951C24AA232400BD2727 /* Main_Repository.swift */; };
 		704AF7EB24C1EB7B00159E65 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704AF7EA24C1EB7B00159E65 /* EndPoint.swift */; };
 		705141B824AA26E800F02A8C /* Main_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705141B724AA26E800F02A8C /* Main_ViewModel.swift */; };
 		705141BB24AA2ADB00F02A8C /* Main_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705141BA24AA2ADB00F02A8C /* Main_View.swift */; };
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7012951C24AA232400BD2727 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		7012951C24AA232400BD2727 /* Main_Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_Repository.swift; sourceTree = "<group>"; };
 		704AF7EA24C1EB7B00159E65 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		705141B724AA26E800F02A8C /* Main_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_ViewModel.swift; sourceTree = "<group>"; };
 		705141BA24AA2ADB00F02A8C /* Main_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_View.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				70DB2AAD24AE845A00635281 /* Main_Model.swift */,
 				705141BA24AA2ADB00F02A8C /* Main_View.swift */,
 				705141B724AA26E800F02A8C /* Main_ViewModel.swift */,
-				7012951C24AA232400BD2727 /* Repository.swift */,
+				7012951C24AA232400BD2727 /* Main_Repository.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -138,6 +138,7 @@
 		7061006924A8F4CD0032F87D /* HttpRequest */ = {
 			isa = PBXGroup;
 			children = (
+				707622FD26712DC200481697 /* ApiList.swift */,
 				705141B924AA26ED00F02A8C /* Main */,
 				7061009B24A8F5D60032F87D /* NetworkLayer */,
 				7061006A24A8F4CD0032F87D /* AppDelegate.swift */,
@@ -171,7 +172,6 @@
 		7061009B24A8F5D60032F87D /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				707622FD26712DC200481697 /* ApiList.swift */,
 				704AF7E924C1EB6800159E65 /* EndPoint */,
 				7081D2AE24B4E9DC00050A64 /* Services */,
 				7081D2A924B4E8FF00050A64 /* Entities */,
@@ -334,7 +334,7 @@
 				705141BB24AA2ADB00F02A8C /* Main_View.swift in Sources */,
 				7061007324A8F4CE0032F87D /* HttpRequest.xcdatamodeld in Sources */,
 				7076230026712F1100481697 /* ServiceManager.swift in Sources */,
-				7012951D24AA232400BD2727 /* Repository.swift in Sources */,
+				7012951D24AA232400BD2727 /* Main_Repository.swift in Sources */,
 				70C849E224B10B0F00F7AC4C /* ServiceNetworkTools.swift in Sources */,
 				707622FE26712DC200481697 /* ApiList.swift in Sources */,
 				7061009D24A8F5FD0032F87D /* DataTaskService.swift in Sources */,
