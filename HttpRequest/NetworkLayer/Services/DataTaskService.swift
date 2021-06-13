@@ -27,6 +27,7 @@ final class DataTaskService: DataTaskDelegate{
     
     //MARK: Start Task
     func StartDataTask(_ request: URLRequest, completion: @escaping Response) {
+        NetworkLogger.log(request: request)
         task = session.dataTask(with: request,
                                 completionHandler: { [weak self] (data, response, error) in
                                     

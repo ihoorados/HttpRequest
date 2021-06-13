@@ -18,8 +18,8 @@ protocol RepositoryDelegate {
 struct MainRepository: RepositoryDelegate {
     
     typealias response = ((Result<[CatFactModel],Error>) -> Void)
-    private var Service:DataTaskService
-    init(service:DataTaskService = DataTaskService(session: URLSession.shared)) {
+    private weak var Service:DataTaskService?
+    init(service:DataTaskService = DataTaskService()) {
         Service = service
     }
     
@@ -35,17 +35,17 @@ struct MainRepository: RepositoryDelegate {
     }
     
     func cancelRequest() {
-        Service.CancelDataTask()
+        Service?.CancelDataTask()
     }
     
     // MARK: - Request Over the Network
     private func RequestOverNetwork(api:NetworkEndPoint,completion: @escaping response){
-        guard let url = api.buildURL() else {
+        guard let url = api.baseURL else {
             completion(.failure(NetworkError.missingURL))
             return
         }
         let request = api.buildURLRequest(with: url)
-        Service.StartDataTask(request) { result in
+        Service?.StartDataTask(request) { result in
             switch result{
                 case .success(let data):
                     JSONSerializationWith(data: data) { result in

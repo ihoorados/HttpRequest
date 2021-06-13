@@ -14,6 +14,13 @@ public enum FactApiList {
 
 extension FactApiList: NetworkEndPoint {
     
+    var baseURL: URL? {
+        get {
+            return buildURL()
+        }
+    }
+    
+    
     var path: String {
         switch self {
         case .facts:
@@ -44,7 +51,7 @@ extension FactApiList: NetworkEndPoint {
     }
     
     var Parameters: HTTPParameters {
-        return nil
+        return HTTPParameters(["P1":"V1"])
     }
     
 }

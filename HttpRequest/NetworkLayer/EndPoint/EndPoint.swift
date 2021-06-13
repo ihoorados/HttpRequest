@@ -9,7 +9,7 @@
 import Foundation
 
 public typealias HTTPParameters = [String: Any]?
-public typealias HTTPHeaders = [String: String]?
+public typealias HTTPHeaders    = [String: String]?
 
 public enum HTTPMethod: String {
     case get     = "GET"
@@ -19,12 +19,14 @@ public enum HTTPMethod: String {
 }
 
 protocol NetworkEndPoint {
-    var path:       String            { get }
-    var host:       String            { get }
-    var scheme:     String            { get }
-    var Method:     HTTPMethod        { get }
-    var Headers:    HTTPHeaders       { get }
-    var Parameters: HTTPParameters    { get }
+    var path:       String             { get }
+    var host:       String             { get }
+    var scheme:     String             { get }
+    var Method:     HTTPMethod         { get }
+
+    var baseURL:    URL?               { get }
+    var Headers:    HTTPHeaders        { get }
+    var Parameters: HTTPParameters     { get }
 }
 
 extension NetworkEndPoint{
@@ -32,12 +34,9 @@ extension NetworkEndPoint{
     func buildURLRequest(with url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = Method.rawValue
-        Headers.map { header in
-            print(header)
-        }
-        request.allHTTPHeaderFields = Headers
         return request
     }
+    
     
     func buildURL() -> URL? {
         var component = URLComponents()
@@ -46,7 +45,12 @@ extension NetworkEndPoint{
         component.path = path
         return component.url
     }
+    
+    fileprivate func encodeParameters(){
+
+    }
 }
+
 
 
 
