@@ -10,7 +10,7 @@ import UIKit
 
 class MainView: UIViewController {
     
-    lazy var URLTitle : UILabel = {
+    lazy var URLTitleLabel : UILabel = {
         let label = UILabel()
         label.text = "URL Address"
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -29,7 +29,6 @@ class MainView: UIViewController {
        let textView = UITextView()
         return textView
     }()
-        
     
     lazy var MethodSegmentControll: UISegmentedControl = {
         let methodSegment = UISegmentedControl(items: ["GET","POST"])
@@ -65,9 +64,6 @@ class MainView: UIViewController {
         OptimizeUIlayout()
     }
     
-    
-    
-    
     func OptimizeUIlayout(){
         
         view.addSubview(MethodSegmentControll)
@@ -77,17 +73,17 @@ class MainView: UIViewController {
         MethodSegmentControll.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
         MethodSegmentControll.selectedSegmentIndex = 0
         
-        view.addSubview(URLTitle)
-        URLTitle.translatesAutoresizingMaskIntoConstraints = false
-        URLTitle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
-        URLTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
-        URLTitle.topAnchor.constraint(equalTo: MethodSegmentControll.bottomAnchor, constant: 32.0).isActive = true
+        view.addSubview(URLTitleLabel)
+        URLTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        URLTitleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
+        URLTitleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
+        URLTitleLabel.topAnchor.constraint(equalTo: MethodSegmentControll.bottomAnchor, constant: 32.0).isActive = true
         
         view.addSubview(URLTextField)
         URLTextField.translatesAutoresizingMaskIntoConstraints = false
         URLTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
         URLTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
-        URLTextField.topAnchor.constraint(equalTo: URLTitle.bottomAnchor, constant: 16.0).isActive = true
+        URLTextField.topAnchor.constraint(equalTo: URLTitleLabel.bottomAnchor, constant: 16.0).isActive = true
         URLTextField.text = "https://www.cat-fact.herokuapp.com/facts"
         
         view.addSubview(ResponseTextView)

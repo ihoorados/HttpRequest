@@ -9,17 +9,17 @@
 import Foundation
 
 
-protocol RepositoryDelegate {
+protocol RepositoryDelegate:AnyObject {
     typealias response = ((Result<[CatFactModel],Error>) -> Void)
     func Request(for endPoint: NetworkEndPoint, completion:  @escaping response)
     func cancelRequest()
 }
 
-struct MainRepository: RepositoryDelegate {
+class MainRepository: RepositoryDelegate {
     
     typealias response = ((Result<[CatFactModel],Error>) -> Void)
-    private weak var Service:DataTaskService?
-    init(service:DataTaskService = DataTaskService()) {
+    private weak var Service:DataTaskDelegate?
+    init(service:DataTaskDelegate = DataTaskService()) {
         Service = service
     }
     
@@ -45,10 +45,11 @@ struct MainRepository: RepositoryDelegate {
             return
         }
         let request = api.buildURLRequest(with: url)
+        print(Service)
         Service?.StartDataTask(request) { result in
             switch result{
-                case .success(let data):
-                    JSONSerializationWith(data: data) { result in
+                case .success(let responseData):
+                    self.JSONSerializationWith(data: responseData) { result in
                         completion(result)
                     }
                 case .failure(let err):

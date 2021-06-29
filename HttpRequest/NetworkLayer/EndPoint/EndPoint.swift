@@ -34,10 +34,10 @@ extension NetworkEndPoint{
     func buildURLRequest(with url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = Method.rawValue
+        //encodeParameters(request: &request)
         return request
     }
-    
-    
+        
     func buildURL() -> URL? {
         var component = URLComponents()
         component.scheme = scheme
@@ -46,8 +46,15 @@ extension NetworkEndPoint{
         return component.url
     }
     
-    fileprivate func encodeParameters(){
-
+    fileprivate func encodeParameters(request:inout URLRequest){
+        do {
+            guard let parameter = Parameters else {
+                return
+            }
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameter, options: [])
+        } catch let err {
+            print(err)
+        }
     }
 }
 

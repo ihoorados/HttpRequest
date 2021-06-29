@@ -32,8 +32,8 @@
             timestampString = "615299383.5211951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "CancelRequestBtn"
             landmarkType = "24">
          </BreakpointContent>
@@ -82,8 +82,181 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "encodeParameters(request:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CA10173-A8A4-4A22-9381-0AD24B13B709"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HttpRequest/NetworkLayer/EndPoint/EndPoint.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "encodeParameters(request:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17A7B6A9-C3A2-43FF-9AF7-3BF35DF863F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HttpRequest/Main/MainViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "fetch()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "17A7B6A9-C3A2-43FF-9AF7-3BF35DF863F2 - 2af4404a62faad5b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HttpRequest.MainViewModel.fetch() -&gt; ()"
+                  moduleName = "HttpRequest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoorad/Documents/Develope/iOS%20APP%20/HttpRequest/HttpRequest/Main/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  uuid = "17A7B6A9-C3A2-43FF-9AF7-3BF35DF863F2 - 8874ff84bdf421f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;HttpRequest.CatFactModel&gt;, Swift.Error&gt;) -&gt; () in HttpRequest.MainViewModel.fetch() -&gt; ()"
+                  moduleName = "HttpRequest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoorad/Documents/Develope/iOS%20APP%20/HttpRequest/HttpRequest/Main/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "71">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97E96ABA-F9C8-4D38-A1CE-705198C8E51B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HttpRequest/Main/MainRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "Request(for:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "97E96ABA-F9C8-4D38-A1CE-705198C8E51B - 4e74b8589e4133e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HttpRequest.MainRepository.Request(for: HttpRequest.NetworkEndPoint, completion: (Swift.Result&lt;Swift.Array&lt;HttpRequest.CatFactModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "HttpRequest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoorad/Documents/Develope/iOS%20APP%20/HttpRequest/HttpRequest/Main/MainRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "115">
+               </Location>
+               <Location
+                  uuid = "97E96ABA-F9C8-4D38-A1CE-705198C8E51B - c411446b2fa335cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;HttpRequest.CatFactModel&gt;, Swift.Error&gt;) -&gt; () in HttpRequest.MainRepository.Request(for: HttpRequest.NetworkEndPoint, completion: (Swift.Result&lt;Swift.Array&lt;HttpRequest.CatFactModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "HttpRequest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoorad/Documents/Develope/iOS%20APP%20/HttpRequest/HttpRequest/Main/MainRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "53">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B49F63DB-9306-40CF-A409-C3922BCFDEDD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HttpRequest/Main/MainRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "Request(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2B5DD0E-5752-41D0-9A6E-E48FB0669BF3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HttpRequest/NetworkLayer/Services/DataTaskService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "StartDataTask(_:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B9F715D-50A3-4D24-849D-3082200DEBA7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HttpRequest/NetworkLayer/Services/DataTaskService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "StartDataTask(_:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "CB13CB38-CE01-447C-A9FE-0DDF9E13A647"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

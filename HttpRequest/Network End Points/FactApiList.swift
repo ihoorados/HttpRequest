@@ -51,7 +51,7 @@ extension FactApiList: NetworkEndPoint {
     }
     
     var Parameters: HTTPParameters {
-        return HTTPParameters(["P1":"V1"])
+        return nil
     }
     
 }

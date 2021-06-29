@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol DataTaskDelegate {
+// MARK: Data Task Delegate
+protocol DataTaskDelegate: AnyObject {
     typealias Response = ((Result<Data,Error>) -> Void)
     func StartDataTask(_ request: URLRequest,completion: @escaping Response)
     func CancelDataTask()
@@ -31,26 +32,30 @@ final class DataTaskService: DataTaskDelegate{
         task = session.dataTask(with: request,
                                 completionHandler: { [weak self] (data, response, error) in
                                     
-            // 1. Check error
+            // MARK: 1. Check error
             if let error = error {
                 completion(.failure(error))
             }
             
-            // 2. Check response
+            // MARK: 2. Check response
             guard let response = response as? HTTPURLResponse else {
                 completion(.failure(NetworkError.FragmentResponse))
                 return
             }
                                     
-            // 3. Validate Response
+            // MARK: 3. Validate Response
             self?.ValidateResponse(response, data: data) { result in
                 completion(result)
             }
         })
+        
+        // MARK: Start Task
+        print("Start Data Task with \(request.debugDescription)")
         task?.resume()
     }
     
     func CancelDataTask() {
+        // MARK: Cancel Data Task
         task?.cancel()
     }
     
