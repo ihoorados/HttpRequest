@@ -12,6 +12,7 @@ public typealias HTTPParameters = [String: Any]?
 public typealias HTTPHeaders    = [String: String]?
 
 public enum HTTPMethod: String {
+    
     case get     = "GET"
     case post    = "POST"
     case put     = "PUT"
@@ -19,6 +20,7 @@ public enum HTTPMethod: String {
 }
 
 protocol NetworkEndPoint {
+    
     var path:       String             { get }
     var host:       String             { get }
     var scheme:     String             { get }
@@ -33,8 +35,11 @@ extension NetworkEndPoint{
     
     func buildURLRequest(with url: URL) -> URLRequest {
         var request = URLRequest(url: url)
-        request.httpMethod = Method.rawValue
-        //encodeParameters(request: &request)
+        if let headers = Headers{
+            for header in headers{
+                request.setValue(header.value, forHTTPHeaderField: header.key)
+            }
+        }
         return request
     }
         
@@ -61,11 +66,3 @@ extension NetworkEndPoint{
 
 
 
-struct HTTPRequest{
-    var path: String?
-    var host: String?
-    var scheme: String?
-    var method: HTTPMethod.RawValue?
-    var headers: HTTPHeaders?
-    var parameter: HTTPParameters?
-}

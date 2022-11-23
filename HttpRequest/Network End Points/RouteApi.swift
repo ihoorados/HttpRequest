@@ -1,18 +1,21 @@
 //
-//  Api.swift
+//  RouteApi.swift
 //  HttpRequest
 //
-//  Created by Hoorad Ramezani on 6/9/21.
+//  Created by Hoorad Ramezani on 7/5/21.
 //  Copyright © 2021 Hoorad. All rights reserved.
 //
 
 import Foundation
 
-public enum FactApiList {
-    case facts
+import Foundation
+
+public enum RouteApi {
+    case routeInfo
 }
 
-extension FactApiList: NetworkEndPoint {
+extension RouteApi: NetworkEndPoint {
+    
     
     var Parameters: HTTPParameters {
         get {
@@ -20,29 +23,31 @@ extension FactApiList: NetworkEndPoint {
         }
     }
     
+    
     var baseURL: URL? {
         get {
             return buildURL()
         }
     }
     
+    
     var path: String {
         switch self {
-        case .facts:
+        case .routeInfo:
             return "/facts"
         }
     }
     
     var host: String {
         switch self {
-        case .facts:
+        case .routeInfo:
             return "cat-fact.herokuapp.com"
         }
     }
     
     var scheme: String {
         switch self {
-        case .facts:
+        case .routeInfo:
             return "https"
         }
     }
@@ -56,28 +61,3 @@ extension FactApiList: NetworkEndPoint {
     }
     
 }
-
-
-
-
-
-
-
-
-
-//
-//enum ApisList{
-//    case Feed
-//    var Request : HTTPRequest {
-//        switch self {
-//        case .Feed:
-//            var feedRequest = HTTPRequest()
-//            feedRequest.method = HTTPMethod.get.rawValue
-//            feedRequest.path = "/facts"
-//            feedRequest.scheme = "https"
-//            feedRequest.host = "cat-fact.herokuapp.com"
-//            feedRequest.headers = HTTPHeaders(["Content-Type":"application/json"])
-//            return feedRequest
-//        }
-//    }
-//}

@@ -15,8 +15,8 @@
             timestampString = "615303100.273217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "fetch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -80,8 +80,8 @@
             filePath = "HttpRequest/NetworkLayer/EndPoint/EndPoint.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "encodeParameters(request:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -96,8 +96,8 @@
             filePath = "HttpRequest/NetworkLayer/EndPoint/EndPoint.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "encodeParameters(request:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -112,8 +112,8 @@
             filePath = "HttpRequest/Main/MainViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "fetch()"
             landmarkType = "7">
             <Locations>
@@ -153,54 +153,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "97E96ABA-F9C8-4D38-A1CE-705198C8E51B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HttpRequest/Main/MainRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "Request(for:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "97E96ABA-F9C8-4D38-A1CE-705198C8E51B - 4e74b8589e4133e9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HttpRequest.MainRepository.Request(for: HttpRequest.NetworkEndPoint, completion: (Swift.Result&lt;Swift.Array&lt;HttpRequest.CatFactModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "HttpRequest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hoorad/Documents/Develope/iOS%20APP%20/HttpRequest/HttpRequest/Main/MainRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "115">
-               </Location>
-               <Location
-                  uuid = "97E96ABA-F9C8-4D38-A1CE-705198C8E51B - c411446b2fa335cd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;HttpRequest.CatFactModel&gt;, Swift.Error&gt;) -&gt; () in HttpRequest.MainRepository.Request(for: HttpRequest.NetworkEndPoint, completion: (Swift.Result&lt;Swift.Array&lt;HttpRequest.CatFactModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "HttpRequest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hoorad/Documents/Develope/iOS%20APP%20/HttpRequest/HttpRequest/Main/MainRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "53">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B49F63DB-9306-40CF-A409-C3922BCFDEDD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -208,8 +160,8 @@
             filePath = "HttpRequest/Main/MainRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "Request(for:completion:)"
             landmarkType = "7">
          </BreakpointContent>

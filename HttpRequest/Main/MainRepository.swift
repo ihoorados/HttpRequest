@@ -18,12 +18,13 @@ protocol RepositoryDelegate:AnyObject {
 class MainRepository: RepositoryDelegate {
     
     typealias response = ((Result<[CatFactModel],Error>) -> Void)
-    private weak var Service:DataTaskDelegate?
+    private var Service:DataTaskDelegate
     init(service:DataTaskDelegate = DataTaskService()) {
         Service = service
     }
     
     func Request(for endPoint:NetworkEndPoint,completion: @escaping response){
+       
         /* We Can Chose What kind of request we can do
                 1. Rest Api Network
                 2. Cash or data base
@@ -35,7 +36,7 @@ class MainRepository: RepositoryDelegate {
     }
     
     func cancelRequest() {
-        Service?.CancelDataTask()
+        Service.CancelDataTask()
     }
     
     // MARK: - Request Over the Network
@@ -45,8 +46,7 @@ class MainRepository: RepositoryDelegate {
             return
         }
         let request = api.buildURLRequest(with: url)
-        print(Service)
-        Service?.StartDataTask(request) { result in
+        Service.StartDataTask(request) { result in
             switch result{
                 case .success(let responseData):
                     self.JSONSerializationWith(data: responseData) { result in

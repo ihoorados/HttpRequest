@@ -21,6 +21,7 @@ class MainViewModel {
     }
     
     func fetch(){
+        
         repos.Request(for: FactApiList.facts) { [weak self] Result in
             switch Result{
             case .success(let data):
