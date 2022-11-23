@@ -50,7 +50,6 @@ final class DataTaskService: DataTaskDelegate{
         })
         
         // MARK: Start Task
-        print("Start Data Task with \(request.debugDescription)")
         task?.resume()
     }
     
