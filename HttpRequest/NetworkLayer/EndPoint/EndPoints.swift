@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct HTTPRequest{
+struct HttpRequest{
     var path: String
     var host: String
     var scheme: String
@@ -18,7 +18,7 @@ struct HTTPRequest{
     var parameter: HTTPParameters
 }
 
-extension HTTPRequest{
+extension HttpRequest{
     
     func buildURLRequest(with url: URL) -> URLRequest {
         let request = URLRequest(url: url)
