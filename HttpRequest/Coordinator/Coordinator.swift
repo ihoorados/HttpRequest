@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-protocol Coordinator {}
+protocol Coordinator {
+    func startMainApplication()
+}
 class AppCoordinator: Coordinator{
 
     /* ------------------------------- */
@@ -21,7 +23,16 @@ class AppCoordinator: Coordinator{
     init(window: UIWindow) {
 
         self.window = window
-        self.window.rootViewController = MainView()
     }
-    
+
+    /* ------------------------------- */
+    // MARK: Public Functions
+    /* ------------------------------- */
+
+    func startMainApplication() {
+
+        let rootVC = MainView()
+        self.window.rootViewController = rootVC
+    }
+
 }
