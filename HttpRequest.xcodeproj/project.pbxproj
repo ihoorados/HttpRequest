@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70102B7E2931578400E8E99B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70102B7D2931578400E8E99B /* Coordinator.swift */; };
 		7012951D24AA232400BD2727 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7012951C24AA232400BD2727 /* MainRepository.swift */; };
 		704AF7EB24C1EB7B00159E65 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704AF7EA24C1EB7B00159E65 /* EndPoint.swift */; };
 		705141B824AA26E800F02A8C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705141B724AA26E800F02A8C /* MainViewModel.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70102B7D2931578400E8E99B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7012951C24AA232400BD2727 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		704AF7EA24C1EB7B00159E65 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		705141B724AA26E800F02A8C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70102B7C2931574600E8E99B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				70102B7D2931578400E8E99B /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		704AF7E924C1EB6800159E65 /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		7061006924A8F4CD0032F87D /* HttpRequest */ = {
 			isa = PBXGroup;
 			children = (
+				70102B7C2931574600E8E99B /* Coordinator */,
 				707623032672841300481697 /* Story Boards */,
 				70762302267283F800481697 /* Application */,
 				70762301267281DD00481697 /* Network End Points */,
@@ -362,6 +373,7 @@
 			files = (
 				70DB2AAE24AE845A00635281 /* MainModel.swift in Sources */,
 				7061006B24A8F4CD0032F87D /* AppDelegate.swift in Sources */,
+				70102B7E2931578400E8E99B /* Coordinator.swift in Sources */,
 				7052D08A2692CAF5006EA4B2 /* RouteApi.swift in Sources */,
 				705141BB24AA2ADB00F02A8C /* MainView.swift in Sources */,
 				7061007324A8F4CE0032F87D /* HttpRequest.xcdatamodeld in Sources */,
