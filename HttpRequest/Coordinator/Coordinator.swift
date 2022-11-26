@@ -23,6 +23,7 @@ class AppCoordinator: Coordinator{
     init(window: UIWindow) {
 
         self.window = window
+        self.window.makeKeyAndVisible()
     }
 
     /* ------------------------------- */
